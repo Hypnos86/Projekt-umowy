@@ -1,0 +1,4 @@
+#ignorowanie folderów
+
+**/.idea
+**/venv
