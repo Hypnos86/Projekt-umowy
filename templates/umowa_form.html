@@ -5,15 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Umowy od Zespłu Nieruchomości WIiR</title>
+    <title>Nowa umowa</title>
 </head>
 <body>
-    <h2>tu beda moje umowy mam nadzieje</h2>
-
-    {%for wszystkie in wszystko%}
-    <h2>{{wszystkie.miasto}}</h2>
-    <p>{{wszystkie}}</p>
-    {%endfor%}
-
+    <form method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        {{form}}
+        <button type="submit">Dodaj umowę</button>
+    </form>
 </body>
 </html>

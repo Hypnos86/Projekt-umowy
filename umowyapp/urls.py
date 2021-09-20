@@ -14,8 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from umowyapp.views import wszystkie_umowy
+from umowyapp.views import wszystkie_umowy, nowe_umowy, edytuj_umowe, usun_film
 
 urlpatterns = [
-    path('ewidencja/', wszystkie_umowy)
+    path('ewidencja/', wszystkie_umowy),
+    path('umowa_form/', nowe_umowy),
+    path('edytuj/<int:id>/', edytuj_umowe),
+    path('usun/<int:id>/', usun_film),
 ]
