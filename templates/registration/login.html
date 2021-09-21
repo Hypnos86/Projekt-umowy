@@ -5,16 +5,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Usuń umowę</title>
+    <title>Document</title>
 </head>
 <body>
-<h1> Czy na pewno chcesz usunąć umowę z {{umowa.nazwa_uzyczajacego}}?</h1>
     <form method="post">
         {%csrf_token%}
-
-        <button type="submit">Usuń umowę</button>
-
+        {{form}}
+    <button type="submit">Zaloguj</button>
     </form>
-    <a href="{% url 'wszystkie_umowy'%}">Cofni</a>
+
 </body>
 </html>

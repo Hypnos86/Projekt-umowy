@@ -31,7 +31,7 @@ def edytuj_umowe(request, id):
     return render(request, 'umowa_form.html', {'form': form})
 
 
-def usun_film(request, id):
+def usun_umowe(request, id):
     umowa = get_object_or_404(Umowy, pk=id)
     if request.method == "POST":
         umowa.delete()
