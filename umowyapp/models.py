@@ -25,6 +25,7 @@ class Umowy(models.Model):
     informacje = models.TextField(default="---Wpisz niezbędne informacje---")
     skan_umowy = models.FileField(upload_to='umowy_pdf', null=True, blank=True)
     stan_umowy = models.BooleanField(null=True, default=True)
+    deleted = models.BooleanField(null=False, default=0)
 
     def __str__(self):
         return self.umowa_z_data()

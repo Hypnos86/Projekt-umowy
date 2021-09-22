@@ -1,13 +1,18 @@
-<!doctype html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Wydział Inwestycji i Remontów KWP w Poznaniu - umowy czynszowe</title>
-</head>
-<body>
+{%extends 'start.html'%}
+
+{%block tytul%} WIiR - Ewidencja umów {%endblock%}
+
+{%block strona%}
+
+    {% if user.is_authenticated%}
+        <h4>Witaj {{user.name}}</h4><br>
+          <a href="{%url 'logout'%}">Logout</a>
+    {%else%}
+         <a href="{%url 'login'%}">Login</a>
+    {%endif%}
+
+    <hr>
+
     <h2>Ewidencja umów Zespołu Nieruchomości</h2>
     <h3>Ilość umów w bazie: {{wszystko|length}}</h3>
     <a href="{% url 'nowe_umowy'%}">Dodaj nową umowę</a>
@@ -19,5 +24,5 @@
     <a href="{% url 'usun_umowe' umowa.id %}">Usuń</a>
     {%endfor%}
 
-</body>
-</html>
+
+{%endblock%}
