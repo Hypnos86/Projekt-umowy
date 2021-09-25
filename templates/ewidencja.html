@@ -5,7 +5,7 @@
 {%block strona%}
 
     {% if user.is_authenticated%}
-        <h4>Witaj {{user.username}}</h4><br>
+        <h4>Witaj {{user.first_name}} (ID: {{ user.username}})</h4><br>
           <a href="{%url 'logout'%}">Logout</a>
     {%else%}
          <a href="{%url 'login'%}">Login</a>
@@ -17,8 +17,8 @@
     <h3>Ilość umów w bazie: {{wszystko|length}}</h3>
     <a href="{% url 'nowe_umowy'%}">Dodaj nową umowę</a>
 
-    {%for umowa in wszystko%}
-    <h2>{{umowa.miasto}}</h2>
+    {%for umowa in wszystkie%}
+    <h2>{{umowa.miasto_uzyczajacego}}</h2>
     <p>{{umowa}}</p>
     <a href="{% url 'edytuj_umowe' umowa.id %}">Edytuj</a>
     <a href="{% url 'usun_umowe' umowa.id %}">Usuń</a>

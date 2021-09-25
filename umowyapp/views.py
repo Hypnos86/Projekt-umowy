@@ -10,7 +10,7 @@ def wszystkie_umowy(request):
     # return HttpResponse('<h1>to jest test aplikacji</h1>')
     wszystkie = Umowy.objects.filter(deleted=0)
 
-    return render(request, 'ewidencja.html', {'wszystko': wszystkie})
+    return render(request, 'ewidencja.html', {'wszystkie': wszystkie})
 
 @login_required
 def nowe_umowy(request):

@@ -16,11 +16,12 @@ class UmowyForm(ModelForm):
                   'rodzaj_kosztow_prad',
                   'informacje',
                   'stan_umowy',
-                  # 'powiaty',
-                  # 'rodzaj_jedn',
+                  'powiaty_jedn',
+                  'rodzaj_jedn',
                   'adres_jedn',
                   'miasto_jedn',
                   'kod_pocztowy_jedn',
                   'skan_umowy',
-
                   ]
+
+        labels = {'data_umowy':'Data umowy', 'nr_umowy': 'Nume umowy'}
