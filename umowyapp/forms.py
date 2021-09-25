@@ -5,5 +5,22 @@ from .models import Umowy
 class UmowyForm(ModelForm):
     class Meta:
         model = Umowy
-        fields = ['data_umowy', 'nazwa_uzyczajacego', 'okres_obowiazywania', 'adres', 'miasto', 'kod_pocztowy',
-                  'pow_uzyczona', 'informacje', 'skan_umowy']
+        fields = ['data_umowy',
+                  'nr_umowy',
+                  'nazwa_uzyczajacego',
+                  'adres_uzyczajacego',
+                  'kod_pocztowy_uzyczajacego',
+                  'miasto_uzyczajacego',
+                  'okres_obowiazywania',
+                  'pow_uzyczona',
+                  'rodzaj_kosztow_prad',
+                  'informacje',
+                  'stan_umowy',
+                  # 'powiaty',
+                  # 'rodzaj_jedn',
+                  'adres_jedn',
+                  'miasto_jedn',
+                  'kod_pocztowy_jedn',
+                  'skan_umowy',
+
+                  ]
