@@ -1,18 +1,14 @@
-<!doctype html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Nowa umowa</title>
-</head>
-<body>
+{%extends 'start.html'%}
+
+{%block tytul%} Dodawanie nowej umowy {%endblock%}
+
+{%block strona%}
+
     <form method="post" enctype="multipart/form-data">
         {%csrf_token%}
-        {{form}}
-        <button type="submit">Dodaj umowę</button>
+            {{form}}
+        <button type="submit">Edytuj</button>
     </form>
-    <a href="{% url 'wszystkie_umowy'%}">Cofni</a>
-</body>
-</html>
+    <a href="{% url 'wszystkie_umowy'%}"><button>Cofnij</button></a>
+
+ {%endblock%}

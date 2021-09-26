@@ -1,0 +1,37 @@
+{%extends 'start.html'%}
+
+{%block tytul%} Umowa {{umowa.id}} {%endblock%}
+
+{%block strona%}
+
+<form>
+    <fieldset>
+            <legend> UMOWA </legend>
+                <ul class="podglad_umow">
+                    <li> Data umowy: {{podglad.data_umowy}}</li>
+                    <li> Numer umowy: {{podglad.nr_umowy}}</li>
+                    <li> Użyczający: {{podglad.nazwa_uzyczajacego }}</li>
+                    <li> Adres: {{podglad.adres_uzyczajacego}}, {{podglad.kod_pocztowy_uzyczajacego}} {{podglad.miasto_uzyczajacego}}</li>
+                    <li> Data zakończenia: {{podglad.okres_obowiazywania}}</li>
+                    <li> Typ umowy: {{podglad.typ_umowy}}</li>
+                    <li> Powieżchcnia:{{podglad.pow_uzyczona}}</li>
+                    <li> Prąd:{{podglad.rodzaj_kosztow_prad}}</li>
+                    <li> Info o kosztach: {{podglad.informacje}}</li>
+                    <li> Stan umowy: {{podglad.stan_umowy}}</li>
+                    <li> Skan umowy: {{podglad.skan_umowy}}  </li> 
+                </ul>
+    </fieldset>
+</form>
+
+<form>
+    <fieldset>
+            <legend>Dotyczy:</legend>
+<span>{{podglad.rodzaj_jedn}} {{podglad.adres_jedn}}, {{podglad.kod_pocztowy_jedn}} {{podglad.miasto_jedn}} ({{podglad.powiaty_jedn}})</span>
+            
+    </fieldset>
+</form>        
+            
+
+<a href="{% url 'wszystkie_umowy'%}"><button>Cofnij</button></a>
+
+ {%endblock%}

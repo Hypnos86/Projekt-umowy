@@ -1,20 +1,14 @@
-<!doctype html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Usuń umowę</title>
-</head>
-<body>
+{%extends 'start.html'%}
+
+{%block tytul%} Usuwanie umowy {%endblock%}
+
+{%block strona%}
 <h1> Czy na pewno chcesz usunąć umowę z {{umowa.nazwa_uzyczajacego}}?</h1>
+
     <form method="post">
         {%csrf_token%}
-
         <button type="submit">Usuń umowę</button>
-
     </form>
-    <a href="{% url 'wszystkie_umowy'%}">Cofni</a>
-</body>
-</html>
+    <a href="{% url 'wszystkie_umowy'%}"><button>Cofnij</button></a>
+
+{%endblock%}

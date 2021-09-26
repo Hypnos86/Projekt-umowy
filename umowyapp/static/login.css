@@ -1,0 +1,34 @@
+.div{
+    padding: 2rem;
+    border: 1px solid black;
+
+
+
+}
+
+hr{
+    border: 2px solid rgb(91, 68, 196);
+}
+
+
+h4, h2{ text-align: center;
+
+}
+
+form {
+    text-align: center;
+}
+
+.button-login {
+    margin: 15px;
+    padding: 5px;
+    width: 8rem;
+    border-radius: 25px;
+
+
+    
+    
+}
+
+
+

@@ -22,6 +22,12 @@ def nowe_umowy(request):
     return render(request, 'umowa_form.html', {'form': form})
 
 @login_required
+def podglad_umow(request, id):
+    podglad = Umowy.objects.get(pk=id)
+    form = UmowyForm(request.FILES or None, instance=podglad)
+    return render(request, 'podglad.html', {'podglad': podglad})
+
+@login_required
 def edytuj_umowe(request, id):
     umowa = get_object_or_404(Umowy, pk=id)
 
@@ -39,6 +45,7 @@ def edytuj_umowe(request, id):
 #         umowa.delete()
 #         return redirect(wszystkie_umowy)
 #     return render(request, 'usun.html', {'umowa': umowa})
+
 @login_required
 def usun_umowe (request, id):
     umowa = get_object_or_404(Umowy, pk=id)
