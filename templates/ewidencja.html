@@ -5,26 +5,28 @@
 {%block strona%}
 
     {% if user.is_authenticated%}
-        <header></h3>Witaj {{user.first_name}} (ID: {{ user.username}})</h3>
-        <div class="logout-contener"><a href="{%url 'logout'%}"><button class="button-umowy button-logout">Wyloguj</button></a></div></header>
+        </h3>Witaj {{user.first_name}} (ID: {{ user.username}})</h3>
+        <div class="logout-contener"><a href="{%url 'logout'%}"><button class="button-umowy button-logout">Wyloguj</button></a></div>
     {%else%}
          <a href="{%url 'login'%}">Login</a>
     {%endif%}
 
     <hr>
 
-    <h2>Ewidencja umów użyczenia</h2>
+    <h2 class="ewidencja-naglowek">Ewidencja umów użyczenia</h2>
     <h3>Ilość umów w bazie: {{wszystkie|length}}</h3>
     <a href="{% url 'nowe_umowy'%}"><button class="button-umowy">Dodaj nową umowę </button></a>
 
     {%for umowa in wszystkie%}
    
-    <ul class="ewidencja_umowy">
-        <li >
+    <ul class="ewidencja_lista">
+        <li class="lista_umowy">
                 {{umowa}}
-                <a href="{% url 'podglad_umowy' umowa.id %}" ><button class="button-umowy" >Podgląd</button></a>
+                <span>
+                <a href="{% url 'podglad_umowy' umowa.id %}" ><button class="button-umowy">Podgląd</button></a>
                 <a href="{% url 'edytuj_umowe' umowa.id %}" ><button class="button-umowy" >Edytuj</button></a>
                 <a href="{% url 'usun_umowe' umowa.id %}"><button class="button-umowy">Usuń</button></a>
+                </span>
           
         </li>
     </ul>

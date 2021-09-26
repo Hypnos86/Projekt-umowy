@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 class Powiaty_Wlkp(models.Model):
-    powiat = models.CharField(max_length=12, null=True)
+    powiat = models.CharField(max_length=12)
 
     def __str__(self):
         return self.powiat_jedn()
@@ -13,7 +13,7 @@ class Powiaty_Wlkp(models.Model):
 
 
 class Rodzaje_jednostek(models.Model):
-    rodzaj = models.CharField(max_length=4, null=True)
+    rodzaj = models.CharField(max_length=4)
 
     def __str__(self):
         return self.rodzaj_jedn()
@@ -23,7 +23,7 @@ class Rodzaje_jednostek(models.Model):
 
 
 class Stan_umow(models.Model):
-    stan = models.CharField(max_length=14, null=True)
+    stan = models.CharField(max_length=14)
 
     def __str__(self):
         return self.stan_umowy()
@@ -44,13 +44,13 @@ class Rodzaj_umowy(models.Model):
 
 
 class Umowy(models.Model):
-    data_umowy = models.DateField(blank=True)
-    nr_umowy = models.CharField(max_length=15, default="BRAK")
+    data_umowy = models.DateField(null=False)
+    nr_umowy = models.CharField(max_length=15, null=True, default="BRAK")
     nazwa_uzyczajacego = models.CharField(max_length=30, null=True)
     adres_uzyczajacego = models.CharField(max_length=30, null=True)
     kod_pocztowy_uzyczajacego = models.CharField(max_length=6, null=True)
     miasto_uzyczajacego = models.CharField(max_length=20, null=True)
-    okres_obowiazywania = models.DateField(null=True)
+    okres_obowiazywania = models.DateField(blank=True, default="")
     
     typ_umowy = models.ForeignKey(Rodzaj_umowy, on_delete=models.CASCADE, null=True)
     
@@ -73,4 +73,4 @@ class Umowy(models.Model):
         return self.umowa_z_data()
 
     def umowa_z_data(self):
-        return "Umowa z dnia {} z {} ({}) Dotyczy: {} {}".format(self.data_umowy, self.nazwa_uzyczajacego, self.miasto_uzyczajacego, self.rodzaj_jedn, self.miasto_jedn)
+        return "Umowa z dnia {} z {} ({}) - {}. Dotyczy: {} {}".format(self.data_umowy, self.nazwa_uzyczajacego, self.miasto_uzyczajacego, self.typ_umowy, self.rodzaj_jedn, self.miasto_jedn)

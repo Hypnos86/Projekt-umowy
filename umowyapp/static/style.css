@@ -1,34 +1,55 @@
-body {
-    padding: 3rem;
+/*ewididencja*/
+body{
+    color: rgb(33, 36, 53);
+    background-color: hsl(85,67%,96%);
+    padding: 1rem 2rem;
 }
 
 h2{
     text-align: center;
 }
+
 h3{
     text-align: left;
 }
+.ewidencja-naglowek{
+    text-align: center;
+    background-color: hsl(194,60%,57%);
+    width: 50%;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px auto;
+    
+}
 
 .button-umowy {
-    text-align: right;
-    border-radius: 15px;
-    margin: 5px 10px;
-    padding: 5px 15px;
-    text-align: right;
-    display:inline-block;
+    background-color: hsl(212,88%,27%);
+    color: hsl(109,49%,85%);
+    font-weight: bold;
+    width: 120px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 25px;
+    border-style: none;
+    position: relative;
 }
 
-.button-umowy.button-logout {
-    
-    margin: 5px;
-    padding: 5px;
-    border-radius: 2rem;
-    width: 60px;
+.button-umowy:hover{
+    background-color: hsl(205,91%,35%);
+    color: hsl(107,50%,91%);
+    transform: scale(1.1);
+}
+
+.logout-contener{
     display: inline-block;
-    text-align: right;
+    margin: left 80px;
+}
+.button-logout {
+    text-align: center;
+    width: 120px;
 }
 
-header {
+.header {
     display: inline-block;
 }
 
@@ -42,10 +63,46 @@ header {
     margin: 15px;
 }
 
-    
+
+.ewidencja_lista{
+    list-style: none;
+    border-radius: 10px;
+    border-style: none;
+    background-color: hsl(135,44%,76%);
+    margin: 20px;
+    padding: 1px 30px;
+} 
+.ewidencja_lista:hover{
+    background-color: hsl(174,44%,64%);
+}
 
 
-ul, li.ewidencja_umowy{
-list-style: none;
-content: "\1F4C2";
+
+.lista_umowy::before{
+    content: "\1F4DD";
+    font-size: large;
+}
+
+.button{
+    display: inline-block;
+    text-align: right;
+}
+/*Podglad umow*/
+
+.info_jednostka{
+    width: 50%;
+}
+
+
+.podglad_umow{
+    margin: 30px;
+}
+
+.pola-podglad{
+    margin: 30px;
+    width: 30%;
+}
+
+.info-podlag{
+    margin: 15px;
 }
