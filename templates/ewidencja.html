@@ -1,11 +1,11 @@
 {%extends 'start.html'%}
 
-{%block tytul%} WIiR - Ewidencji umów użyczenia {%endblock%}
+{%block tytul%} WIiR - Ewidencji umów najmu i użyczenia {%endblock%}
 
 {%block strona%}
 
     {% if user.is_authenticated%}
-        </h3>Witaj {{user.first_name}} (ID: {{ user.username}})</h3>
+        <h3>Witaj {{user.first_name}} (ID: {{ user.username}})</h3>
         <div class="logout-contener"><a href="{%url 'logout'%}"><button class="button-umowy button-logout">Wyloguj</button></a></div>
     {%else%}
          <a href="{%url 'login'%}">Login</a>
@@ -13,7 +13,7 @@
 
     <hr>
 
-    <h2 class="ewidencja-naglowek">Ewidencja umów użyczenia</h2>
+    <h2 class="ewidencja-naglowek">Ewidencja umów najmu i użyczenia</h2>
     <h3>Ilość umów w bazie: {{wszystkie|length}}</h3>
     <a href="{% url 'nowe_umowy'%}"><button class="button-umowy">Dodaj nową umowę </button></a>
 

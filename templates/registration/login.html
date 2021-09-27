@@ -9,17 +9,16 @@
 {%block strona%}
     <div class="naglowki_login">
         <h2> Wydział Inwestycji i Remontów KWP w Poznaniu</h2>
-        <h2>Umowy czynszowe</h2>
+        <h2>Umowy najmu i użyczenia</h2>
     </div>
         <div class=login>
-            <h4>Zaloguj się</h5>
+            <h4>Zaloguj się</h4>
             <hr class="hr_login">
             <form method="post">
                 {%csrf_token%}
                 {{form|bootstrap}}
                 
                 <button type="submit"  class="button-login">Zaloguj </button>
-                
             </form>
         </div>
 

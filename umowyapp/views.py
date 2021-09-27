@@ -30,12 +30,12 @@ def podglad_umow(request, id):
 @login_required
 def edytuj_umowe(request, id):
     umowa = get_object_or_404(Umowy, pk=id)
-    form = UmowyForm(request.POST or None, request.FILES or None, instance=umowa)
+    edytowane = UmowyForm(request.POST or None, request.FILES or None, instance=umowa)
 
-    if form.is_valid():
-        form.save()
+    if edytowane.is_valid():
+        edytowane.save()
         return redirect(wszystkie_umowy)
-    return render(request, 'umowa_form.html', {'form': form})
+    return render(request, 'edytuj.html', {'edytowane': edytowane})
 
 # @login_required
 # def usun_umowe(request, id):

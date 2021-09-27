@@ -5,11 +5,11 @@
 {%block strona%}
 <div class="card", style="width: 32rem">
     <div class="card-body">
-    <h4> Dodawanie nowej umowy</h4>
+    <h4> Edytowanie umowy: <label>{{podglad.nr_umowy}}</h4>
         <form method="post" enctype="multipart/form-data">
             {%csrf_token%}
-                {{form|bootstrap}}
-            <button type="submit">Dodaj</button>
+                {{edytowane|bootstrap}}
+            <button type="submit">Edytuj umowę</button>
         </form>
     </div>
     <a href="{% url 'wszystkie_umowy'%}"><button>Cofnij</button></a>
