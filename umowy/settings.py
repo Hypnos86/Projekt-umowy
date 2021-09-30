@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'umowyapp',
 ]
 
+# aby dzialaly PDFy i przegladanie
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -121,6 +124,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ['static']
+
+MEDIA_URL ='/doc/'
+MEDIA_ROOT = 'umowy_pdf'
 
 LOGIN_URL ='login'
 LOGIN_REDIRECT_URL = 'wszystkie_umowy'

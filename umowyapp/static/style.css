@@ -3,6 +3,7 @@ body{
     color: rgb(33, 36, 53);
     background-color: hsl(85,67%,96%);
     padding: 1rem 2rem;
+
 }
 
 h2{
@@ -19,7 +20,6 @@ h3{
     border-radius: 10px;
     padding: 10px;
     margin: 10px auto;
-    
 }
 
 .button-umowy {
@@ -39,6 +39,13 @@ h3{
     color: hsl(107,50%,91%);
     transform: scale(1.1);
 }
+
+.przyciski_glowna{
+    display: inline-block;
+    right: 5px;;
+    text-align: right;
+}
+
 
 .logout-contener{
     display: inline-block;
@@ -105,4 +112,18 @@ h3{
 
 .info-podlag{
     margin: 15px;
+}
+
+/*widok pdf */
+.pdf_viev{
+    padding: 5px;
+    display: inline-block;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    margin-bottom: 50px;
+    
+}
+embed{
+    width: 600px;
+    height: 450px; 
 }

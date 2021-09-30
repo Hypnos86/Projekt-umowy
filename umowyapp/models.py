@@ -73,4 +73,4 @@ class Umowy(models.Model):
         return self.umowa_z_data()
 
     def umowa_z_data(self):
-        return "Umowa z dnia {} z {} ({}) - {}. Dotyczy: {} {}".format(self.data_umowy, self.nazwa_uzyczajacego, self.miasto_uzyczajacego, self.typ_umowy, self.rodzaj_jedn, self.miasto_jedn)
+        return "Umowa z dnia {} z {} ({})".format(self.data_umowy, self.nazwa_uzyczajacego, self.miasto_uzyczajacego)

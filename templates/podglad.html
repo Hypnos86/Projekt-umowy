@@ -10,7 +10,7 @@
 <span >{{podglad.rodzaj_jedn}} {{podglad.adres_jedn}}, {{podglad.kod_pocztowy_jedn}} {{podglad.miasto_jedn}} ({{podglad.powiaty_jedn}})</span>
     </fieldset>
 </form>
-
+<div >
 <form>
     <fieldset class="pola-podglad">
             <legend> UMOWA nr {{podglad.nr_umowy}}</legend>
@@ -24,11 +24,15 @@
                     <li class="info-podlag"> Prąd:{{podglad.rodzaj_kosztow_prad}}</li>
                     <li class="info-podlag"> Info o kosztach: {{podglad.informacje}}</li>
                     <li class="info-podlag"> Stan umowy: {{podglad.stan_umowy}}</li>
-                    <li class="info-podlag"> Skan umowy: {{podglad.skan_umowy}}  </li> 
+
                 </ul>
     </fieldset>
-</form>        
-            
-<a href="{% url 'wszystkie_umowy'%}"><button>Cofnij</button></a>
+</form>
+    <div class="pdf_viev">
+        <embed src="/doc/{{podglad.skan_umowy}}#toolbar=0" type="application/pdf"/>
+    </div>
+
+
+<a href="{% url 'wszystkie_umowy'%}"><button>Cofnij</button>
 
  {%endblock%}

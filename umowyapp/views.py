@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Umowy
+from .models import Rodzaje_jednostek, Umowy
 from .forms import UmowyForm
 from django.contrib.auth.decorators import login_required
 

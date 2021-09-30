@@ -15,21 +15,27 @@
 
     <h2 class="ewidencja-naglowek">Ewidencja umów najmu i użyczenia</h2>
     <h3>Ilość umów w bazie: {{wszystkie|length}}</h3>
+
     <a href="{% url 'nowe_umowy'%}"><button class="button-umowy">Dodaj nową umowę </button></a>
+
 
     {%for umowa in wszystkie%}
    
     <ul class="ewidencja_lista">
+        <div>
         <li class="lista_umowy">
-                {{umowa}}
-                <span>
+                {{umowa}}<br>
+            {{umowa.typ_umowy}} <b>|</b> {{umowa.rodzaj_jedn}} {{umowa.miasto_jedn}}
+                <div class="przyciski_glowna">
                 <a href="{% url 'podglad_umowy' umowa.id %}" ><button class="button-umowy">Podgląd</button></a>
                 <a href="{% url 'edytuj_umowe' umowa.id %}" ><button class="button-umowy" >Edytuj</button></a>
                 <a href="{% url 'usun_umowe' umowa.id %}"><button class="button-umowy">Usuń</button></a>
-                </span>
-          
+                </div>
+
         </li>
+        <div>
     </ul>
+
     {%endfor%}
 
 

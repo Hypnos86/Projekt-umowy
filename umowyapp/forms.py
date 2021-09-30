@@ -25,7 +25,7 @@ class UmowyForm(ModelForm):
                   'skan_umowy',
                   ]
 
-        labels = {'data_umowy':'Data umowy',
+        labels = {'data_umowy': 'Data umowy',
                   'nr_umowy': 'Numer umowy',
                   'nazwa_uzyczajacego': 'Użyczający',
                   'adres_uzyczajacego': 'Adres',
