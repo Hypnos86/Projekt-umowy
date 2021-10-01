@@ -33,7 +33,7 @@ class UmowyForm(ModelForm):
                   'miasto_uzyczajacego': 'Miasto',
                   'okres_obowiazywania': 'Data zakończenia umowy',
                   'typ_umowy': "Typ umowy",
-                  'pow_uzyczona': 'Powieżchcnia',
+                  'pow_uzyczona': 'Powierzchnia [m2]',
                   'rodzaj_kosztow_prad': 'Prąd',
                   'informacje': 'Info o kosztach',
                   'stan_umowy': 'Stan umowy',

@@ -1,37 +1,45 @@
-/*ewididencja*/
+/*wszystkie strony*/
 body{
     color: rgb(33, 36, 53);
     background-color: hsl(85,67%,96%);
     padding: 1rem 2rem;
+    font-family: arial;
+    margin: auto 45px;
+}
+/* ewidencja - panel uzytkownika*/
 
+.user_name{
+    float: left;
 }
 
-h2{
-    text-align: center;
+.button-logout{
+    float: right;
 }
 
-h3{
-    text-align: left;
+hr{
+    clear: both;
+    
 }
-.ewidencja-naglowek{
-    text-align: center;
+
+/*strona główna - ewidencja*/
+.ewidencja-title{
     background-color: hsl(194,60%,57%);
-    width: 50%;
+    padding: 5px 20px;
     border-radius: 10px;
-    padding: 10px;
-    margin: 10px auto;
+    margin: 0 0 20px;
+    }
+.title{
+    text-align:center;
 }
 
 .button-umowy {
     background-color: hsl(212,88%,27%);
     color: hsl(109,49%,85%);
-    font-weight: bold;
-    width: 120px;
-    margin: 10px;
+    width: auto;
+    margin: 15px 20px;
     padding: 10px;
-    border-radius: 25px;
+    border-radius: 10px;
     border-style: none;
-    position: relative;
 }
 
 .button-umowy:hover{
@@ -40,90 +48,60 @@ h3{
     transform: scale(1.1);
 }
 
-.przyciski_glowna{
-    display: inline-block;
-    right: 5px;;
-    text-align: right;
-}
-
-
-.logout-contener{
-    display: inline-block;
-    margin: left 80px;
-}
-.button-logout {
-    text-align: center;
-    width: 120px;
-}
-
-.header {
-    display: inline-block;
-}
-
-.logout-contener {
-    display: inline-block;
-    text-align: right;
-
-}
-.podglad_umow{
-    padding: 10px;
-    margin: 15px;
-}
-
-
-.ewidencja_lista{
-    list-style: none;
-    border-radius: 10px;
+.lista{
+    display: flex;
+    border-radius: 20px;
     border-style: none;
     background-color: hsl(135,44%,76%);
-    margin: 20px;
-    padding: 1px 30px;
-} 
-.ewidencja_lista:hover{
+    margin: 10px;
+    padding: auto auto;
+    width: 50%; 
+}
+.lista:hover{
     background-color: hsl(174,44%,64%);
 }
 
-
-
-.lista_umowy::before{
+.lista_umow{
+    list-style-type:none;
+    flex:1;   
+}
+.znacznik::before{
     content: "\1F4DD";
-    font-size: large;
+}
+
+.info{
+    margin-left: 30px;
 }
 
 .button{
     display: inline-block;
     text-align: right;
 }
-/*Podglad umow*/
 
-.info_jednostka{
-    width: 50%;
+/* widok podglądu umów - podglad.html*/
+.podglad_box{
+    width: 40%;
 }
 
-
-.podglad_umow{
-    margin: 30px;
+section{
+display:flex;
+}
+.naglowek_podglad{
+    text-align:center;
 }
 
-.pola-podglad{
-    margin: 30px;
-    width: 30%;
-}
-
-.info-podlag{
-    margin: 15px;
-}
 
 /*widok pdf */
 .pdf_viev{
-    padding: 5px;
-    display: inline-block;
-    padding-top: 20px;
-    padding-bottom: 15px;
-    margin-bottom: 50px;
-    
+    margin: 0 5%;
 }
 embed{
-    width: 600px;
-    height: 450px; 
+    width: 900px;
+    height: 800px;
+    margin: 10px
+}
+
+.cofni_podgląd{
+    clear: left;
+
 }

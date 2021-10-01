@@ -126,7 +126,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = ['static']
 
 MEDIA_URL ='/doc/'
-MEDIA_ROOT = 'umowy_pdf'
+MEDIA_ROOT = 'media'
 
 LOGIN_URL ='login'
 LOGIN_REDIRECT_URL = 'wszystkie_umowy'

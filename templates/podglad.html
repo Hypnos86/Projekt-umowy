@@ -3,36 +3,47 @@
 {%block tytul%} Umowa {{umowa.id}} {%endblock%}
 
 {%block strona%}
+<section>
+<div class="podglad_box">
+    <h2 class="naglowek_podglad">Podgląd umowy {{podglad.nr_umowy}} z dnia {{podglad.data_umowy}}</h2>
 
-<form>
-    <fieldset class="info_jednostka">
+    <form>
+        <fieldset>
             <legend>Dotyczy:</legend>
-<span >{{podglad.rodzaj_jedn}} {{podglad.adres_jedn}}, {{podglad.kod_pocztowy_jedn}} {{podglad.miasto_jedn}} ({{podglad.powiaty_jedn}})</span>
-    </fieldset>
-</form>
-<div >
-<form>
-    <fieldset class="pola-podglad">
-            <legend> UMOWA nr {{podglad.nr_umowy}}</legend>
-                <ul class="podglad_umow">
-                    <li class="info-podlag"> Data umowy: {{podglad.data_umowy}}</li>
-                    <li class="info-podlag"> Użyczający: {{podglad.nazwa_uzyczajacego }}</li>
-                    <li class="info-podlag"> Adres: {{podglad.adres_uzyczajacego}}, {{podglad.kod_pocztowy_uzyczajacego}} {{podglad.miasto_uzyczajacego}}</li>
-                    <li class="info-podlag"> Data zakończenia: {{podglad.okres_obowiazywania}}</li>
-                    <li class="info-podlag"> Typ umowy: {{podglad.typ_umowy}}</li>
-                    <li class="info-podlag"> Powieżchcnia:{{podglad.pow_uzyczona}}</li>
-                    <li class="info-podlag"> Prąd:{{podglad.rodzaj_kosztow_prad}}</li>
-                    <li class="info-podlag"> Info o kosztach: {{podglad.informacje}}</li>
-                    <li class="info-podlag"> Stan umowy: {{podglad.stan_umowy}}</li>
+            <span>{{podglad.rodzaj_jedn}} {{podglad.adres_jedn}}, {{podglad.kod_pocztowy_jedn}} {{podglad.miasto_jedn}} ({{podglad.powiaty_jedn}})</span>
+        </fieldset>
+    </form>
 
-                </ul>
-    </fieldset>
-</form>
-    <div class="pdf_viev">
-        <embed src="/doc/{{podglad.skan_umowy}}#toolbar=0" type="application/pdf"/>
-    </div>
+    <form>
+        <fieldset>
+            <legend> Informacje z umowy</legend>
+            <ul>
+                <li> Data umowy: {{podglad.data_umowy}}</li>
+                <li> Użyczający: {{podglad.nazwa_uzyczajacego }}</li>
+                <li> Adres: {{podglad.adres_uzyczajacego}},
+                    {{podglad.kod_pocztowy_uzyczajacego}} {{podglad.miasto_uzyczajacego}}
+                </li>
+                <li> Data zakończenia: {{podglad.okres_obowiazywania}}</li>
+                <li> Typ umowy: {{podglad.typ_umowy}}</li>
+                <li> Powierzchnia:{{podglad.pow_uzyczona}}</li>
+                <li> Prąd:{{podglad.rodzaj_kosztow_prad}}</li>
+                <li> Info o kosztach: {{podglad.informacje}}</li>
+                <li> Stan umowy: {{podglad.stan_umowy}}</li>
 
+            </ul>
+        </fieldset>
+    </form>
+</div>
 
-<a href="{% url 'wszystkie_umowy'%}"><button>Cofnij</button>
+<div class="pdf_viev">
 
- {%endblock%}
+    <embed src="/doc/{{podglad.skan_umowy}}#toolbar=0" type="application/pdf"/>
+
+</div>
+</section>
+<div class="cofni_podgląd">
+<a  href="{% url 'wszystkie_umowy'%}">
+    <button>Cofnij</button>
+</div>
+
+    {%endblock%}

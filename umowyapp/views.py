@@ -9,17 +9,20 @@ from django.contrib.auth.decorators import login_required
 def wszystkie_umowy(request):
     # return HttpResponse('<h1>to jest test aplikacji</h1>')
     wszystkie = Umowy.objects.filter(deleted=0)
+    archiwalne = Umowy.objects.filter(deleted=1)
 
-    return render(request, 'ewidencja.html', {'wszystkie': wszystkie})
+    return render(request, 'ewidencja.html', {'wszystkie': wszystkie, 'archiwalne': archiwalne})
+
 
 @login_required
 def nowe_umowy(request):
-    form = UmowyForm(request.POST or None, request.FILES or None)
+    umowa_form = UmowyForm(request.POST or None, request.FILES or None)
 
-    if form.is_valid():
-        form.save()
+    if umowa_form.is_valid():
+        umowa_form.save()
         return redirect(wszystkie_umowy)
-    return render(request, 'umowa_form.html', {'form': form})
+    return render(request, 'umowa_form.html', {'umowa_form': umowa_form, 'nowy': True})
+
 
 @login_required
 def podglad_umow(request, id):
@@ -27,15 +30,17 @@ def podglad_umow(request, id):
     form = UmowyForm(request.FILES or None, instance=podglad)
     return render(request, 'podglad.html', {'podglad': podglad})
 
+
 @login_required
 def edytuj_umowe(request, id):
-    umowa = get_object_or_404(Umowy, pk=id)
-    edytowane = UmowyForm(request.POST or None, request.FILES or None, instance=umowa)
+    umowa_edit = get_object_or_404(Umowy, pk=id)
+    umowa_form = UmowyForm(request.POST or None, request.FILES or None, instance=umowa_edit)
 
-    if edytowane.is_valid():
-        edytowane.save()
+    if umowa_form.is_valid():
+        umowa_form.save()
         return redirect(wszystkie_umowy)
-    return render(request, 'edytuj.html', {'edytowane': edytowane})
+    return render(request, 'umowa_form.html', {'umowa_form': umowa_form, 'nowy': False})
+
 
 # @login_required
 # def usun_umowe(request, id):
@@ -46,9 +51,9 @@ def edytuj_umowe(request, id):
 #     return render(request, 'usun.html', {'umowa': umowa})
 
 @login_required
-def usun_umowe (request, id):
+def usun_umowe(request, id):
     umowa = get_object_or_404(Umowy, pk=id)
-    if request.method =="POST":
+    if request.method == "POST":
         umowa.deleted = 1
         umowa.save()
         return redirect(wszystkie_umowy)

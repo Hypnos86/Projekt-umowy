@@ -1,42 +1,54 @@
 {%extends 'start.html'%}
 
-{%block tytul%} WIiR - Ewidencji umów najmu i użyczenia {%endblock%}
+{%block tytul%} WIiR KWP P-ń - Ewidencji umów najmu i użyczenia {%endblock%}
 
 {%block strona%}
 
-    {% if user.is_authenticated%}
-        <h3>Witaj {{user.first_name}} (ID: {{ user.username}})</h3>
-        <div class="logout-contener"><a href="{%url 'logout'%}"><button class="button-umowy button-logout">Wyloguj</button></a></div>
+{% if user.is_authenticated%}
+<div  class="element_login">
+    <div class="user_name">
+        <h3>Zalogowany użytkownik: {{user.first_name}} (ID: {{ user.username}})</h3>
+    </div>
+    <div class="button-logout">
+        <a href="{%url 'logout'%}"><button class="button-umowy">Wyloguj</button></a>
+    </div>
+</div>
     {%else%}
-         <a href="{%url 'login'%}">Login</a>
+        <a href="{%url 'login'%}">Login</a>
     {%endif%}
 
-    <hr>
+<hr>
 
-    <h2 class="ewidencja-naglowek">Ewidencja umów najmu i użyczenia</h2>
-    <h3>Ilość umów w bazie: {{wszystkie|length}}</h3>
+<div class="ewidencja-title">
+    <h2 class="title">Wydział Inwestycji i Remontów KWP w Poznaniu</h2>
+    <h3 class="title">Ewidencja umów najmu i użyczenia</h3>
+    <h4>Ilość umów w bazie: {{wszystkie|length}}</h4>
+    <h4>Ilość umów w archiwum: {{archiwalne|length}}</h4>
 
-    <a href="{% url 'nowe_umowy'%}"><button class="button-umowy">Dodaj nową umowę </button></a>
+    <nav>
+        <a href="{% url 'nowe_umowy'%}"><button class="button-umowy">Dodaj nową umowę</button></a>
+        <a href="#"><button class="button-umowy">Archiwum umów</button></a>
+    </nav>
 
+</div>
 
-    {%for umowa in wszystkie%}
-   
-    <ul class="ewidencja_lista">
-        <div>
-        <li class="lista_umowy">
-                {{umowa}}<br>
-            {{umowa.typ_umowy}} <b>|</b> {{umowa.rodzaj_jedn}} {{umowa.miasto_jedn}}
-                <div class="przyciski_glowna">
-                <a href="{% url 'podglad_umowy' umowa.id %}" ><button class="button-umowy">Podgląd</button></a>
-                <a href="{% url 'edytuj_umowe' umowa.id %}" ><button class="button-umowy" >Edytuj</button></a>
-                <a href="{% url 'usun_umowe' umowa.id %}"><button class="button-umowy">Usuń</button></a>
-                </div>
+{%for umowa in wszystkie%}
 
+<main class="lista">
+    <ul class="lista_umow">
+        <li class="znacznik">
+            <b>{{umowa}}</b><br>
+            <p class="info">{{umowa.typ_umowy}} <b>|</b> {{umowa.rodzaj_jedn}} {{umowa.miasto_jedn}}</p>
         </li>
-        <div>
     </ul>
+    <div>
+        <a href="{% url 'podglad_umowy' umowa.id %}"><button class="button-umowy">Podgląd</button></a>
+        <a href="{% url 'edytuj_umowe' umowa.id %}"><button class="button-umowy">Edytuj</button></a>
+        <a href="{% url 'usun_umowe' umowa.id %}"><button class="button-umowy">Usuń</button></a>
 
-    {%endfor%}
+    </div>
+</main>
 
+{%endfor%}
 
 {%endblock%}
