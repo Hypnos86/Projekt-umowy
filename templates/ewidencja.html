@@ -10,7 +10,7 @@
         <h3>Zalogowany użytkownik: {{user.first_name}} (ID: {{ user.username}})</h3>
     </div>
     <div class="button-logout">
-        <a href="{%url 'logout'%}"><button class="button-umowy">Wyloguj</button></a>
+        <a href="{%url 'logout'%}"><button class="button-general">Wyloguj</button></a>
     </div>
 </div>
     {%else%}
@@ -22,12 +22,12 @@
 <div class="ewidencja-title">
     <h2 class="title">Wydział Inwestycji i Remontów KWP w Poznaniu</h2>
     <h3 class="title">Ewidencja umów najmu i użyczenia</h3>
-    <h4>Ilość umów w bazie: {{wszystkie|length}}</h4>
-    <h4>Ilość umów w archiwum: {{archiwalne|length}}</h4>
+    <h4 class="info-umowy">Ilość umów w bazie: {{wszystkie|length}}</h4>
+    <h4 class="info-umowy">Ilość umów w archiwum: {{archiwalne|length}}</h4>
 
     <nav>
-        <a href="{% url 'nowe_umowy'%}"><button class="button-umowy">Dodaj nową umowę</button></a>
-        <a href="#"><button class="button-umowy">Archiwum umów</button></a>
+        <a href="{% url 'nowe_umowy'%}"><button class="button-general button-menu">Dodaj nową umowę</button></a>
+        <a href="#"><button class="button-general button-menu">Archiwum umów</button></a>
     </nav>
 
 </div>
@@ -36,15 +36,15 @@
 
 <main class="lista">
     <ul class="lista_umow">
-        <li class="znacznik">
-            <b>{{umowa}}</b><br>
+        <li class="lista-option">
+            <p class="znacznik"><b>{{umowa}} </b></p>
             <p class="info">{{umowa.typ_umowy}} <b>|</b> {{umowa.rodzaj_jedn}} {{umowa.miasto_jedn}}</p>
         </li>
     </ul>
     <div>
-        <a href="{% url 'podglad_umowy' umowa.id %}"><button class="button-umowy">Podgląd</button></a>
-        <a href="{% url 'edytuj_umowe' umowa.id %}"><button class="button-umowy">Edytuj</button></a>
-        <a href="{% url 'usun_umowe' umowa.id %}"><button class="button-umowy">Usuń</button></a>
+        <a href="{% url 'podglad_umowy' umowa.id %}"><button class="button-general">Podgląd</button></a>
+        <a href="{% url 'edytuj_umowe' umowa.id %}"><button class="button-general">Edytuj</button></a>
+        <a href="{% url 'usun_umowe' umowa.id %}"><button class="button-general buton-remove">Usuń</button></a>
 
     </div>
 </main>

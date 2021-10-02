@@ -2,7 +2,7 @@
 body{
     color: rgb(33, 36, 53);
     background-color: hsl(85,67%,96%);
-    padding: 1rem 2rem;
+    padding: 1rem 1%;
     font-family: arial;
     margin: auto 45px;
 }
@@ -18,34 +18,47 @@ body{
 
 hr{
     clear: both;
-    
 }
 
 /*strona główna - ewidencja*/
 .ewidencja-title{
     background-color: hsl(194,60%,57%);
-    padding: 5px 20px;
+    padding: 1% 20px;
     border-radius: 10px;
     margin: 0 0 20px;
     }
 .title{
     text-align:center;
+    margin: 2px;
 }
 
-.button-umowy {
+.info-umowy{
+    margin: 5px;
+}
+
+.button-general {
+    display:inline-block;
     background-color: hsl(212,88%,27%);
     color: hsl(109,49%,85%);
     width: auto;
-    margin: 15px 20px;
-    padding: 10px;
+    margin: 7% 8px auto auto;
+    padding:10px;
     border-radius: 10px;
     border-style: none;
 }
 
-.button-umowy:hover{
+.button-general:hover{
     background-color: hsl(205,91%,35%);
     color: hsl(107,50%,91%);
     transform: scale(1.1);
+}
+
+.button-menu{
+    margin: 1px 1% ;
+}
+
+.buton-remove:hover{
+    background: red;
 }
 
 .lista{
@@ -53,24 +66,33 @@ hr{
     border-radius: 20px;
     border-style: none;
     background-color: hsl(135,44%,76%);
-    margin: 10px;
+    margin: 5px;
     padding: auto auto;
-    width: 50%; 
+    width: 70%;
 }
 .lista:hover{
     background-color: hsl(174,44%,64%);
 }
-
 .lista_umow{
     list-style-type:none;
-    flex:1;   
+    flex:1;
+    margin: auto;
 }
+
+.znacznik{
+    margin-bottom: auto;
+}
+
 .znacznik::before{
     content: "\1F4DD";
+    margin-right: 15px;
 }
 
 .info{
-    margin-left: 30px;
+    margin-left: 37px;
+    margin-top: auto;
+    margin-bottom: 8px;
+
 }
 
 .button{
@@ -80,7 +102,7 @@ hr{
 
 /* widok podglądu umów - podglad.html*/
 .podglad_box{
-    width: 40%;
+    width: 45%;
 }
 
 section{
@@ -93,11 +115,12 @@ display:flex;
 
 /*widok pdf */
 .pdf_viev{
-    margin: 0 5%;
+    margin: auto ;
+    background-color: red;
 }
 embed{
-    width: 900px;
-    height: 800px;
+    width: 700px;
+    height: 900px;
     margin: 10px
 }
 
