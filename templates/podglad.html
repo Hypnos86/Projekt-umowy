@@ -36,11 +36,17 @@
 </div>
 
 <div class="pdf_viev">
-
+    {%if podglad.skan_umowy %}
     <embed src="/doc/{{podglad.skan_umowy}}#toolbar=0" type="application/pdf"/>
-
+    {%else%}
+    
+        <h3>Miejsce na skan umowy</h3>
+    
+    {%endif%}
 </div>
+
 </section>
+
 <div class="cofni_podgląd">
 <a  href="{% url 'wszystkie_umowy'%}">
     <button>Cofnij</button>

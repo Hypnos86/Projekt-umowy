@@ -116,7 +116,9 @@ display:flex;
 /*widok pdf */
 .pdf_viev{
     margin: auto ;
-    background-color: red;
+    background-color: hsl(135,44%,76%);
+    border-radius: 10px;
+
 }
 embed{
     width: 700px;
