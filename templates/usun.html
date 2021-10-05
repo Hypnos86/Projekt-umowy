@@ -3,11 +3,11 @@
 {%block tytul%} Usuwanie umowy {%endblock%}
 
 {%block strona%}
-<h1> Czy na pewno chcesz usunąć umowę z {{umowa.nazwa_uzyczajacego}}?</h1>
+<h2> Czy na pewno chcesz przenieść umowę z <i>{{umowa.nazwa_uzyczajacego}}</i> do archiwum?</h2>
 
     <form method="post">
         {%csrf_token%}
-        <button type="submit">Usuń umowę</button>
+        <button type="submit" class="button-general">Przenieś do archiwum</button>
     </form>
     <a href="{% url 'wszystkie_umowy'%}"><button>Cofnij</button></a>
 

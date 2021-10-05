@@ -10,12 +10,13 @@ body{
     border-radius: 10px;
     padding: 15px;
     margin: 25px auto;
+    font-family: arial;
 
 }
 
 .login{
     padding: 2rem;
-    border: 5px solid hsl(135,44%,76%);
+    border: 5px solid hsl(200,63%,46%);
     width: 25%;
     margin: 5rem auto;
     text-align: center;
@@ -31,7 +32,7 @@ form {
 }
 
 .button-login {
-    background-color: hsl(174,44%,64%);
+    background-color: hsl(194,60%,57%);
     color: hsl(212,88%,27%);
     font-weight: bold;
     margin: 20px;

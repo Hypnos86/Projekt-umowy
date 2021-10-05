@@ -10,12 +10,12 @@
             {%csrf_token%}
                 {{umowa_form|bootstrap}}
             {% if nowy %}
-            <button type="submit">Dodaj umowę</button>
+            <button type="submit" class="button-general">Dodaj umowę</button>
             {% else %}
-            <button type="submit">Edytuj umowę</button>
+            <button type="submit" class="button-general">Edytuj umowę</button>
             {% endif %}
         </form>
     </div>
-    <a href="{% url 'wszystkie_umowy'%}"><button>Cofnij</button></a>
+    <a href="{% url 'wszystkie_umowy'%}"><button class="button-general">Cofnij</button></a>
 </div>
  {%endblock%}

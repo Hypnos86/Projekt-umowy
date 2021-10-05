@@ -13,6 +13,14 @@ def wszystkie_umowy(request):
 
     return render(request, 'ewidencja.html', {'wszystkie': wszystkie, 'archiwalne': archiwalne})
 
+@login_required
+def archiwalne_umowy(request):
+    # return HttpResponse('<h1>to jest test aplikacji</h1>')
+    archiwalne = Umowy.objects.filter(deleted=1)
+
+    return render(request, 'archiwum.html', {'archiwalne': archiwalne})
+
+
 
 @login_required
 def nowe_umowy(request):

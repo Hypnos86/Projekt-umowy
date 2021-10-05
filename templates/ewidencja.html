@@ -27,7 +27,7 @@
 <hr>
     <nav>
         <a href="{% url 'nowe_umowy'%}"><button class="button-general button-menu">Dodaj nową umowę</button></a>
-        <a href="#"><button class="button-general button-menu">Archiwum umów</button></a>
+        <a href="{% url 'archiwalne_umowy'%}"><button class="button-general button-menu">Archiwum umów</button></a>
     </nav>
 </div>
 
@@ -44,7 +44,7 @@
     <div>
         <a href="{% url 'podglad_umowy' umowa.id %}"><button class="button-general">Podgląd</button></a>
         <a href="{% url 'edytuj_umowe' umowa.id %}"><button class="button-general">Edytuj</button></a>
-        <a href="{% url 'usun_umowe' umowa.id %}"><button class="button-general buton-remove">Usuń</button></a>
+        <a href="{% url 'usun_umowe' umowa.id %}"><button class="button-general buton-remove">Zarchiwizuj</button></a>
 
     </div>
 </main>
