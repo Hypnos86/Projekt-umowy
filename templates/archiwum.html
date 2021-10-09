@@ -1,0 +1,53 @@
+{%extends 'start.html'%}
+
+{%block tytul%} WIiR KWP P-ń - Ewidencji umów najmu i użyczenia {%endblock%}
+
+{%block strona%}
+
+{% if user.is_authenticated%}
+<div  class="element_login">
+    <div class="user_name">
+        <h3>Zalogowany użytkownik: {{user.first_name}} (ID: {{ user.username}})</h3>
+    </div>
+    <div class="button-logout">
+        <a href="{%url 'logout'%}"><button class="button-general">Wyloguj</button></a>
+    </div>
+</div>
+    {%else%}
+        <a href="{%url 'login'%}">Login</a>
+    {%endif%}
+
+<hr>
+
+<div class="ewidencja-title">
+    <h2 class="title">Wydział Inwestycji i Remontów KWP w Poznaniu</h2>
+    <h3 class="title">Archiwum umów najmu i użyczenia</h3>
+    <h4 class="info-umowy">Ilość umów w bazie: {{wszystkie|length}}</h4>
+    <h4 class="info-umowy">Ilość umów w archiwum: {{archiwalne|length}}</h4>
+<hr>
+    <nav>
+        <a href="{% url 'nowe_umowy'%}"><button class="button-general button-menu">Dodaj nową umowę</button></a>
+        <a href="{% url 'wszystkie_umowy'%}"><button class="button-general button-menu">Ewidencja umów</button></a>
+        <a href="{% url 'archiwalne_umowy'%}"><button class="button-general button-menu active">Archiwum umów</button></a>
+    </nav>
+</div>
+
+
+{%for umowa in archiwalne%}
+
+<main class="lista archiwum">
+    <ul class="lista_umow">
+        <li class="lista-option">
+            <p class="znacznik"><b>{{umowa}} </b></p>
+            <p class="info">{{umowa.typ_umowy}} <b>|</b> {{umowa.rodzaj_jedn}} {{umowa.miasto_jedn}}</p>
+        </li>
+    </ul>
+    <div>
+        <a href="{% url 'podglad_umowy' umowa.id %}"><button class="button-general">Podgląd</button></a>
+
+    </div>
+</main>
+
+{%endfor%}
+
+{%endblock%}

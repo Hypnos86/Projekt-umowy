@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Rodzaje_jednostek, Umowy
+from .models import Rodzaje_jednostek, Umowy, Stan_umow
 from .forms import UmowyForm
 from django.contrib.auth.decorators import login_required
 
@@ -13,13 +13,14 @@ def wszystkie_umowy(request):
 
     return render(request, 'ewidencja.html', {'wszystkie': wszystkie, 'archiwalne': archiwalne})
 
+
 @login_required
 def archiwalne_umowy(request):
     # return HttpResponse('<h1>to jest test aplikacji</h1>')
     archiwalne = Umowy.objects.filter(deleted=1)
+    wszystkie = Umowy.objects.filter(deleted=0)
 
-    return render(request, 'archiwum.html', {'archiwalne': archiwalne})
-
+    return render(request, 'archiwum.html', {'archiwalne': archiwalne, 'wszystkie': wszystkie})
 
 
 @login_required
@@ -63,6 +64,7 @@ def usun_umowe(request, id):
     umowa = get_object_or_404(Umowy, pk=id)
     if request.method == "POST":
         umowa.deleted = 1
+        # mowa.stan_umowy = Stan_umow[1]
         umowa.save()
         return redirect(wszystkie_umowy)
     return render(request, 'usun.html', {'umowa': umowa})

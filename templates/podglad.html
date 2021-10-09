@@ -1,55 +1,76 @@
 {%extends 'start.html'%}
 
-{%block tytul%} Umowa {{umowa.id}} {%endblock%}
+{%block tytul%} Umowa {{podglad.nr_umowy}} {%endblock%}
 
 {%block strona%}
 <section>
-<div class="podglad_box">
-    <h2 class="naglowek_podglad">Podgląd umowy {{podglad.nr_umowy}} z dnia {{podglad.data_umowy}}</h2>
+    <div class="podglad_box">
+        <h2 class="naglowek_podglad">Podgląd umowy {{podglad.nr_umowy}}<br>z dnia {{podglad.data_umowy}}</h2>
 
-    <form>
-        <fieldset>
-            <legend>Dotyczy:</legend>
-            <span>{{podglad.rodzaj_jedn}} {{podglad.adres_jedn}}, {{podglad.kod_pocztowy_jedn}} {{podglad.miasto_jedn}} ({{podglad.powiaty_jedn}})</span>
-        </fieldset>
-    </form>
+        <form class="podglad_umow">
+            <fieldset>
+                <legend>Dotyczy:</legend>
+                <span>{{podglad.rodzaj_jedn}} {{podglad.adres_jedn}}, {{podglad.kod_pocztowy_jedn}} {{podglad.miasto_jedn}} ({{podglad.powiaty_jedn}})</span>
+            </fieldset>
+        </form>
 
-    <form>
-        <fieldset>
-            <legend> Informacje z umowy</legend>
-            <ul>
-                <li> Data umowy: {{podglad.data_umowy}}</li>
-                <li> Użyczający: {{podglad.nazwa_uzyczajacego }}</li>
-                <li> Adres: {{podglad.adres_uzyczajacego}},
-                    {{podglad.kod_pocztowy_uzyczajacego}} {{podglad.miasto_uzyczajacego}}
-                </li>
-                <li> Data zakończenia: {{podglad.okres_obowiazywania}}</li>
-                <li> Typ umowy: {{podglad.typ_umowy}}</li>
-                <li> Powierzchnia:{{podglad.pow_uzyczona}}</li>
-                <li> Prąd:{{podglad.rodzaj_kosztow_prad}}</li>
-                <li> Info o kosztach: {{podglad.informacje}}</li>
-                <li> Stan umowy: {{podglad.stan_umowy}}</li>
+        <form class="podglad_umow">
+            <fieldset>
+                <legend> Informacje z umowy</legend>
+                <ul>
+                    <li> Data umowy: {{podglad.data_umowy}}</li>
+                    <li> Użyczający: {{podglad.nazwa_uzyczajacego }}</li>
+                    <li> Adres: {{podglad.adres_uzyczajacego}},
+                        {{podglad.kod_pocztowy_uzyczajacego}} {{podglad.miasto_uzyczajacego}}
+                    </li>
+                    <li> Data zakończenia: {{podglad.okres_obowiazywania}}</li>
+                    <li> Typ umowy: {{podglad.typ_umowy}}</li>
+                    <li> Powierzchnia w m<sup>2</sup>: {{podglad.pow_uzyczona}}</li>
 
-            </ul>
-        </fieldset>
-    </form>
-</div>
+                    {%if podglad.rodzaj_kosztow_prad == True%}
+                    <li> Prąd: {{podglad.rodzaj_kosztow_prad}}</li>
+                    <li> Info o kosztach: {{podglad.informacje_prad}}</li>
+                    {%else%}
+                    {%endif%}
 
-<div class="pdf_viev">
-    {%if podglad.skan_umowy %}
-    <embed src="/doc/{{podglad.skan_umowy}}#toolbar=0" type="application/pdf"/>
-    {%else%}
-    
+                    {%if podglad.rodzaj_kosztow_gaz == True%}
+                    <li> Gaz: {{podglad.rodzaj_kosztow_gaz}}</li>
+                    <li> Info o kosztach: {{podglad.informacje_gaz}}</li>
+                    {%else%}
+                    {%endif%}
+
+                    {%if podglad.rodzaj_kosztow_woda == True%}
+                    <li> Woda: {{podglad.rodzaj_kosztow_woda}}</li>
+                    <li> Info o kosztach: {{podglad.informacje_woda}}</li>
+                    {%else%}
+                    {%endif%}
+
+                    {%if podglad.rodzaj_kosztow_co == True%}
+                    <li> Centralne ogrzewanie: {{podglad.rodzaj_kosztow_co}}</li>
+                    <li> Info o kosztach: {{podglad.informacje_co}}</li>
+                    {%else%}
+                    {%endif%}
+                    <li> Stan umowy: {{podglad.stan_umowy}}</li>
+
+                </ul>
+            </fieldset>
+        </form>
+        <div class="cofni_podgląd">
+            <a href="{% url 'wszystkie_umowy'%}">
+                <button class="button-general button-back">Cofnij</button>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="pdf_viev">
+        {%if podglad.skan_umowy %}
+        <embed src="/doc/{{podglad.skan_umowy}}#toolbar=0" type="application/pdf"/>
+        {%else%}
+
         <h4>Miejsce na skan umowy</h4>
-    
-    {%endif%}
-</div>
 
+        {%endif%}
+    </div>
 </section>
-
-<div class="cofni_podgląd">
-<a  href="{% url 'wszystkie_umowy'%}">
-    <button class="button-general">Cofnij</button>
-</div>
-
-    {%endblock%}
+{%endblock%}

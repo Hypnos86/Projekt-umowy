@@ -3,19 +3,22 @@
 {%block tytul%} Dodawanie nowej umowy {%endblock%}
 
 {%block strona%}
-<div class="card", style="width: 32rem">
-    <div class="card-body">
-    <h4> Dodawanie nowej umowy</h4>
+<div>
+    <div>
+        <h4> Dodawanie nowej umowy</h4>
         <form method="post" enctype="multipart/form-data">
             {%csrf_token%}
-                {{umowa_form|bootstrap}}
+            {{umowa_form}}
             {% if nowy %}
             <button type="submit" class="button-general">Dodaj umowę</button>
+
             {% else %}
             <button type="submit" class="button-general">Edytuj umowę</button>
             {% endif %}
         </form>
     </div>
-    <a href="{% url 'wszystkie_umowy'%}"><button class="button-general">Cofnij</button></a>
+    <a href="{% url 'wszystkie_umowy'%}">
+        <button class="button-general">Cofnij</button>
+    </a>
 </div>
- {%endblock%}
+{%endblock%}

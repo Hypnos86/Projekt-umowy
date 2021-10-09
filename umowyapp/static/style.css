@@ -41,10 +41,12 @@ hr{
     background-color: hsl(212,88%,27%);
     color: hsl(109,49%,85%);
     width: auto;
-    margin: 7% 8px auto auto;
+    margin: 20px 8px auto auto;
     padding:10px;
     border-radius: 10px;
     border-style: none;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .button-general:hover{
@@ -54,7 +56,11 @@ hr{
 }
 
 .button-menu{
-    margin: 1px 1% ;
+    margin: 5px 1% 2px ;
+}
+
+.active{
+    background-color: hsl(205,91%,35%);
 }
 
 .buton-remove:hover{
@@ -76,7 +82,7 @@ hr{
 .lista_umow{
     list-style-type:none;
     flex:1;
-    margin: auto;
+    margin: auto auto 10px;
 }
 
 .znacznik{
@@ -100,6 +106,16 @@ hr{
     text-align: right;
 }
 
+/* archiwum*/
+.archiwum{
+    background-color: rgb(221, 167, 173);
+}
+
+.archiwum:hover{
+    background-color: rgb(204, 123, 173);
+}
+
+
 /* widok podglądu umów - podglad.html*/
 .podglad_box{
     width: 45%;
@@ -110,6 +126,20 @@ display:flex;
 }
 .naglowek_podglad{
     text-align:center;
+}
+
+.podglad_umow{
+    margin:15px 0px;
+    padding:2%;
+}
+.podglad_umow fieldset ul li{
+    padding: 3px;
+    margin: 3px;
+}
+
+.button back{
+    margin: 1px 8px auto auto;
+    padding:2px;
 }
 
 
