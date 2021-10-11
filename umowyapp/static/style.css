@@ -121,6 +121,10 @@ hr{
     width: 45%;
 }
 
+.aktywne::before{
+    content:"\2714";
+}
+
 section{
 display:flex;
 }

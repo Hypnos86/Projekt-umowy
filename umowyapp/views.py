@@ -51,14 +51,6 @@ def edytuj_umowe(request, id):
     return render(request, 'umowa_form.html', {'umowa_form': umowa_form, 'nowy': False})
 
 
-# @login_required
-# def usun_umowe(request, id):
-#     umowa = get_object_or_404(Umowy, pk=id)
-#     if request.method == "POST":
-#         umowa.delete()
-#         return redirect(wszystkie_umowy)
-#     return render(request, 'usun.html', {'umowa': umowa})
-
 @login_required
 def usun_umowe(request, id):
     umowa = get_object_or_404(Umowy, pk=id)

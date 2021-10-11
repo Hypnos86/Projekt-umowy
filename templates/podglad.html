@@ -28,23 +28,40 @@
                     <li> Powierzchnia w m<sup>2</sup>: {{podglad.pow_uzyczona}}</li>
 
                     {%if podglad.rodzaj_kosztow_prad == True%}
-                    <li> Prąd: {{podglad.rodzaj_kosztow_prad}}</li>
-                    <li> Info o kosztach: {{podglad.informacje_prad}}</li>
+                    <form>
+                    <fieldset>
+                        <legend class="aktywne"> Prąd - informacje o kosztach: </legend>
+                    <p>{{podglad.informacje_prad}}</p>
+                    </fieldset>
+                    </form>
                     {%endif%}
 
                     {%if podglad.rodzaj_kosztow_gaz == True%}
-                    <li> Gaz: {{podglad.rodzaj_kosztow_gaz}}</li>
-                    <li> Info o kosztach: {{podglad.informacje_gaz}}</li>
+                      <form>
+                    <fieldset>
+                        <legend class="aktywne"> Gaz - informacje o kosztach: </legend>
+                    <p>{{podglad.informacje_gaz}}</p>
+                    
+                    </fieldset>
+                    </form>
                     {%endif%}
 
                     {%if podglad.rodzaj_kosztow_woda == True%}
-                    <li> Woda: {{podglad.rodzaj_kosztow_woda}}</li>
-                    <li> Info o kosztach: {{podglad.informacje_woda}}</li>
+                     <form>
+                    <fieldset>
+                        <legend class="aktywne"> Woda - informacje o kosztach: </legend>
+                    <p>{{podglad.informacje_woda}}</p>
+                    </fieldset>
+                    </form>
                     {%endif%}
 
                     {%if podglad.rodzaj_kosztow_co == True%}
-                    <li> Centralne ogrzewanie: {{podglad.rodzaj_kosztow_co}}</li>
-                    <li> Info o kosztach: {{podglad.informacje_co}}</li>
+                    <form>
+                    <fieldset>
+                        <legend class="aktywne"> Centralne ogrzewanie - informacje o kosztach: </legend>
+                    <p>{{informacje_co}}</p>
+                    </fieldset>
+                    </form>
                     {%endif%}
                     <li> Stan umowy: {{podglad.stan_umowy}}</li>
 
