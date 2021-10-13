@@ -3,7 +3,7 @@
 {%block tytul%} Umowa {{podglad.nr_umowy}} {%endblock%}
 
 {%block strona%}
-<section>
+<section xmlns="http://www.w3.org/1999/html">
     <div class="podglad_box">
         <h2 class="naglowek_podglad">Podgląd umowy {{podglad.nr_umowy}}<br>z dnia {{podglad.data_umowy}}</h2>
 
@@ -18,7 +18,7 @@
             <fieldset>
                 <legend> Informacje z umowy</legend>
                 <ul>
-                    <li> Data umowy: {{podglad.data_umowy}}</li>
+                    <li> <label>Data umowy: {{podglad.data_umowy}}</label></li>
                     <li> Użyczający: {{podglad.nazwa_uzyczajacego }}</li>
                     <li> Adres: {{podglad.adres_uzyczajacego}},
                         {{podglad.kod_pocztowy_uzyczajacego}} {{podglad.miasto_uzyczajacego}}
@@ -64,6 +64,7 @@
                     </form>
                     {%endif%}
                     <li> Stan umowy: {{podglad.stan_umowy}}</li>
+                    <li> <label>Uwagi: {{podglad.uwagi}}</label></li>
 
                 </ul>
             </fieldset>

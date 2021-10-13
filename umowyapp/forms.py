@@ -29,6 +29,7 @@ class UmowyForm(ModelForm):
                   'miasto_jedn',
                   'kod_pocztowy_jedn',
                   'skan_umowy',
+                  'uwagi',
                   ]
 
         labels = {'data_umowy': 'Data umowy',
@@ -55,4 +56,5 @@ class UmowyForm(ModelForm):
                   'miasto_jedn': 'Miasto',
                   'kod_pocztowy_jedn': 'Kod pocztowy',
                   'skan_umowy': 'Skan umowy',
+                  'uwagi': 'Uwagi',
                   }

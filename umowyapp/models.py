@@ -33,7 +33,7 @@ class Stan_umow(models.Model):
 
 
 class Rodzaj_umowy(models.Model):
-    rodz_um = models.CharField(max_length=6, null=True)
+    rodz_um = models.CharField(max_length=6, default="Czynsz")
 
     def __str__(self):
         return self.rodzaj_um()
@@ -73,6 +73,7 @@ class Umowy(models.Model):
     skan_umowy = models.FileField(upload_to='umowy_pdf', null=True, blank=True)
 
     stan_umowy = models.ForeignKey(Stan_umow, on_delete=models.CASCADE, null=True)
+    uwagi = models.TextField(default="Wpisz niezbędne informacje dotyczące umowy")
     deleted = models.BooleanField(null=False, default=0)
 
     def __str__(self):
