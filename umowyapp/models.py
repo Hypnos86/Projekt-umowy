@@ -42,9 +42,20 @@ class Rodzaj_umowy(models.Model):
         return "{}".format(self.rodz_um)
 
 
+class Podstawa_prawna(models.Model):
+    podstawa = models.CharField(max_length=30, null=False)
+
+    def __str__(self):
+        return self.podstawa_praw()
+
+    def podstawa_praw(self):
+        return "{}".format(self.podstawa)
+
+
 class Umowy(models.Model):
     data_umowy = models.DateField(null=False)
     nr_umowy = models.CharField(max_length=20, null=True, default="BRAK")
+    podstawa_prawna = models.ForeignKey(Podstawa_prawna, on_delete=models.CASCADE, null=True, blank=True)
     nazwa_uzyczajacego = models.CharField(max_length=30, null=True)
     adres_uzyczajacego = models.CharField(max_length=30, null=True)
     kod_pocztowy_uzyczajacego = models.CharField(max_length=6, null=True)
@@ -65,15 +76,15 @@ class Umowy(models.Model):
     informacje_co = models.TextField(null=True, default="---Niezbędne informacje---")
 
     powiaty_jedn = models.ForeignKey(Powiaty_Wlkp, on_delete=models.CASCADE)
-    rodzaj_jedn = models.ForeignKey(Rodzaje_jednostek, on_delete=models.CASCADE, null=True)
+    rodzaj_jedn = models.ForeignKey(Rodzaje_jednostek, on_delete=models.CASCADE)
 
     adres_jedn = models.CharField(max_length=30, null=True)
     miasto_jedn = models.CharField(max_length=20, null=True)
     kod_pocztowy_jedn = models.CharField(max_length=6, null=True)
     skan_umowy = models.FileField(upload_to='umowy_pdf', null=True, blank=True)
 
-    stan_umowy = models.ForeignKey(Stan_umow, on_delete=models.CASCADE, null=True)
-    uwagi = models.TextField(default="Wpisz niezbędne informacje dotyczące umowy")
+    stan_umowy = models.ForeignKey(Stan_umow, on_delete=models.CASCADE)
+    uwagi = models.TextField(null=True, blank=True, default="")
     deleted = models.BooleanField(null=False, default=0)
 
     def __str__(self):
@@ -81,3 +92,14 @@ class Umowy(models.Model):
 
     def umowa_z_data(self):
         return "Umowa z dnia {} z {} ({})".format(self.data_umowy, self.nazwa_uzyczajacego, self.miasto_uzyczajacego)
+
+
+class Aneksy(models.Model):
+    aneks = models.FileField(upload_to='aneksy_pdf', null=True, blank=True)
+    umowa = models.ForeignKey(Umowy, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.aneksy()
+
+    def aneksy(self):
+        return "{}".format(self.aneks)

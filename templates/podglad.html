@@ -19,13 +19,13 @@
                 <legend> Informacje z umowy</legend>
                 <ul>
                     <li> <label>Data umowy: {{podglad.data_umowy}}</label></li>
-                    <li> Użyczający: {{podglad.nazwa_uzyczajacego }}</li>
-                    <li> Adres: {{podglad.adres_uzyczajacego}},
-                        {{podglad.kod_pocztowy_uzyczajacego}} {{podglad.miasto_uzyczajacego}}
+                    <li> <label>Użyczający: {{podglad.nazwa_uzyczajacego }}</label></li>
+                    <li> <label> Adres: {{podglad.adres_uzyczajacego}},
+                        {{podglad.kod_pocztowy_uzyczajacego}} {{podglad.miasto_uzyczajacego}}</label>
                     </li>
-                    <li> Data zakończenia: {{podglad.okres_obowiazywania}}</li>
-                    <li> Typ umowy: {{podglad.typ_umowy}}</li>
-                    <li> Powierzchnia w m<sup>2</sup>: {{podglad.pow_uzyczona}}</li>
+                    <li> <label>Data zakończenia: {{podglad.okres_obowiazywania}}</label></li>
+                    <li> <label>Typ umowy: {{podglad.typ_umowy}}</label></li>
+                    <li> <label>Powierzchnia w m<sup>2</sup>: {{podglad.pow_uzyczona}}</label></li>
 
                     {%if podglad.rodzaj_kosztow_prad == True%}
                     <form>

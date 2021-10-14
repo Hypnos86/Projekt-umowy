@@ -7,6 +7,7 @@ class UmowyForm(ModelForm):
         model = Umowy
         fields = ['data_umowy',
                   'nr_umowy',
+                  'podstawa_prawna',
                   'nazwa_uzyczajacego',
                   'adres_uzyczajacego',
                   'kod_pocztowy_uzyczajacego',
@@ -34,6 +35,7 @@ class UmowyForm(ModelForm):
 
         labels = {'data_umowy': 'Data umowy',
                   'nr_umowy': 'Numer umowy',
+                  'podstawa_prawna': 'Podstawa prawna',
                   'nazwa_uzyczajacego': 'Użyczający',
                   'adres_uzyczajacego': 'Adres',
                   'kod_pocztowy_uzyczajacego': 'Kod pocztowy',

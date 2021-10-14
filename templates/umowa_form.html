@@ -8,16 +8,13 @@
         <h4> Dodawanie nowej umowy</h4>
         <form method="post" enctype="multipart/form-data">
             {%csrf_token%}
-            
-            {{umowa_form.nr_umowy}}
-            {{umowa_form|bootstrap}}
-
-            
-
+            {{umowa_form}}
             {% if nowy %}
             <button type="submit" class="button-general">Dodaj umowę</button>
 
             {% else %}
+
+
             <button type="submit" class="button-general">Edytuj umowę</button>
             {% endif %}
         </form>
