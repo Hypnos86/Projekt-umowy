@@ -67,6 +67,29 @@ hr{
     background: red;
 }
 
+/*wyszukiwarka*/
+
+.search{
+    display:inline-block;
+    width:60%;
+    text-align:right;
+}
+
+.search input{
+    width:250px;
+    border: solid 5px hsl(205,91%,35%);
+    height:25px;
+    border-radius: 10px;
+
+
+}
+
+.search input:focus{
+    border: solid 10px red;
+    outline: none;
+}
+
+
 .lista{
     display: flex;
     border-radius: 20px;
