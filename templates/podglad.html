@@ -9,14 +9,14 @@
 
         <form class="podglad_umow">
             <fieldset>
-                <legend>Dotyczy:</legend>
+                <legend><b>Dotyczy</b></legend>
                 <span>{{podglad.rodzaj_jedn}} {{podglad.adres_jedn}}, {{podglad.kod_pocztowy_jedn}} {{podglad.miasto_jedn}} ({{podglad.powiaty_jedn}})</span>
             </fieldset>
         </form>
 
         <form class="podglad_umow">
             <fieldset>
-                <legend> Informacje z umowy</legend>
+                <legend> <b>Informacje</b></legend>
                 <ul>
                     <li> <label>Data umowy: {{podglad.data_umowy}}</label></li>
                     <li> <label>Użyczający: {{podglad.nazwa_uzyczajacego }}</label></li>
@@ -70,9 +70,7 @@
             </fieldset>
         </form>
         <div class="cofni_podgląd">
-            <a href="{% url 'wszystkie_umowy'%}">
-                <button class="button-general button-back">Cofnij</button>
-            </a>
+            <a href="{% url 'wszystkie_umowy'%}"><button class="button-general button-back">Cofnij</button></a>
         </div>
     </div>
 

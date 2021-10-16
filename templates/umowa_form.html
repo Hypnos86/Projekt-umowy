@@ -9,9 +9,62 @@
         <form method="post" enctype="multipart/form-data">
             {%csrf_token%}
 
-            {{umowa_form.nr_umowy}}
+            <form>
+                <fieldset>
+                    <legend><b>Umowa:</b></legend>
 
-            {{umowa_form|bootstrap}}
+                    <div><label>Data umowy:</label><input type="date" value="{{umowa_form.data_umowy}}"></div>
+
+                    <label>Nr umowy:</label>{{umowa_form.nr_umowy}}
+
+                    <label>Podstawa prawna:</label>{{umowa_form.podstawa_prawna}}
+
+                    <label>Typ umowy:</label>{{umowa_form.typ_umowy}}
+
+                    <label>Stan umowy:</label>{{umowa_form.stan_umowy}}
+
+                    <label>Powierzchnia użyczona [m<sup>2</sup>]:</label>
+                        <input type="number" placeholder="wpisz powierzchnie" value="{{umowa_form.pow_uzyczona}}"></p>
+
+                    <label>Nazwa:</label>{{umowa_form.nazwa_uzyczajacego}}
+                    <label>Adres:</label>{{umowa_form.adres_uzyczajacego}}
+                    <label>Kod pocztowy:</label>{{umowa_form.kod_pocztowy_uzyczajacego}}
+                    <label>Miasto:</label>{{umowa_form.miasto_uzyczajacego}}
+                    <label>Okres obowiąztwania:</label>{{umowa_form.okres_obowiazywania}}
+                    <label>Skan umowy:</label>{{umowa_form.skan_umowy}}
+                </fieldset>
+            </form>
+
+            <form>
+                <fieldset>
+                    <legend><b>Informacje o mediach:</b></legend>
+                    <span>Prąd: <input type="checkbox" value="{{umowa_form.rodzaj_kosztow_prad}}"></span>
+                    {{umowa_form.informacje_prad}}
+                    {{umowa_form.rodzaj_kosztow_gaz}}
+                    {{umowa_form.informacje_gaz}}
+                    {{umowa_form.rodzaj_kosztow_woda}}
+                    {{umowa_form.informacje_woda}}
+                    {{umowa_form.rodzaj_kosztow_co}}
+                    {{umowa_form.informacje_co}}
+                </fieldset>
+            </form>
+
+            <form>
+                <fieldset>
+                    <legend><b>Jednostka Policji</b></legend>
+                    {{umowa_form.powiaty_jedn}}
+                    {{umowa_form.rodzaj_jedn}}
+
+                    {{umowa_form.adres_jedn}}
+                    {{umowa_form.miasto_jedn}}
+                    {{umowa_form.kod_pocztowy_jedn}}
+                </fieldset>
+            </form>
+            <label>Uwagi: </label>
+            {{umowa_form.uwagi}}
+
+
+            <!--            {{umowa_form|bootstrap}}-->
             {% if nowy %}
             <button type="submit" class="button-general">Dodaj umowę</button>
 

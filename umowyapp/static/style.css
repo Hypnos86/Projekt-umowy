@@ -81,7 +81,7 @@ nav{
     display:inline-block;
     width: 400px;
     text-align:right;
-    margin-left: 35%;
+    margin: auto auto auto 40%;
 }
 
 .search input{
@@ -100,7 +100,6 @@ nav{
     width:120px;
     margin-left:10px;
 }
-
 
 .lista{
     display: flex;
@@ -133,7 +132,6 @@ nav{
     margin-left: 37px;
     margin-top: auto;
     margin-bottom: 8px;
-
 }
 
 .button{
@@ -149,7 +147,6 @@ nav{
 .archiwum:hover{
     background-color: rgb(204, 123, 173);
 }
-
 
 /* widok podglądu umów - podglad.html*/
 .podglad_box{
@@ -181,20 +178,23 @@ display:flex;
     padding:2px;
 }
 
+fieldset{
+    border: solid 3px hsl(205,91%,35%);
+    border-radius: 10px;
+}
 
 /*widok pdf */
 .pdf_viev{
     margin: auto ;
     background-color: hsl(135,44%,76%);
     border-radius: 10px;
-
-
+    border: 3px
 
 }
 embed{
     width: 700px;
     height: 900px;
-    margin: 10px
+    margin: 6px
 }
 
 .cofni_podgląd{
