@@ -35,6 +35,9 @@ hr{
 .info-umowy{
     margin: 5px;
 }
+nav{
+    width: auto;
+}
 
 .button-general {
     display:inline-block;
@@ -52,7 +55,7 @@ hr{
 .button-general:hover{
     background-color: hsl(205,91%,35%);
     color: hsl(107,50%,91%);
-    transform: scale(1.1);
+    transform: scale(1.1)
 }
 
 .button-menu{
@@ -61,32 +64,41 @@ hr{
 
 .active{
     background-color: hsl(205,91%,35%);
+
 }
 
-.buton-remove:hover{
-    background: red;
+.button-remove{
+    margin-right:15px;
+}
+
+.button-remove:hover{
+    background: rgb(204, 123, 173);
 }
 
 /*wyszukiwarka*/
 
 .search{
     display:inline-block;
-    width:60%;
+    width: 400px;
     text-align:right;
+    margin-left: 35%;
 }
 
 .search input{
     width:250px;
-    border: solid 5px hsl(205,91%,35%);
+    border: solid 3px hsl(205,91%,35%);
     height:25px;
     border-radius: 10px;
-
-
 }
 
 .search input:focus{
-    border: solid 10px red;
+    border: solid 3px white;
     outline: none;
+}
+
+.button-search{
+    width:120px;
+    margin-left:10px;
 }
 
 

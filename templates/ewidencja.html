@@ -5,17 +5,19 @@
 {%block strona%}
 
 {% if user.is_authenticated%}
-<div  class="element_login">
+<div class="element_login">
     <div class="user_name">
         <h3>Zalogowany użytkownik: {{user.first_name}} (ID: {{ user.username}})</h3>
     </div>
     <div class="button-logout">
-        <a href="{%url 'logout'%}"><button class="button-general">Wyloguj</button></a>
+        <a href="{%url 'logout'%}">
+            <button class="button-general">Wyloguj</button>
+        </a>
     </div>
 </div>
-    {%else%}
-        <a href="{%url 'login'%}">Login</a>
-    {%endif%}
+{%else%}
+<a href="{%url 'login'%}">Login</a>
+{%endif%}
 
 <hr>
 
@@ -24,34 +26,39 @@
     <h3 class="title">Ewidencja umów najmu i użyczenia</h3>
     <h4 class="info-umowy">Ilość umów w bazie: {{wszystkie|length}}</h4>
     <h4 class="info-umowy">Ilość umów w archiwum: {{archiwalne|length}}</h4>
-<hr>
+    <hr>
     <nav>
-        <a href="{% url 'nowe_umowy'%}"><button class="button-general button-menu">Dodaj nową umowę</button></a>
-        <a href="{% url 'wszystkie_umowy'%}"><button class="button-general button-menu active">Ewidencja umów</button></a>
-        <a href="{% url 'archiwalne_umowy'%}"><button class="button-general button-menu">Archiwum umów</button></a>
-
-        <div class="search">
-            <input type="text" placeholder="Wyszukaj umowę">
-            <button class="button-general button-menu" type="submit">Szukaj</button>
-        </div>
+        <a href="{% url 'nowe_umowy'%}">
+            <button class="button-general button-menu">Dodaj nową umowę</button></a>
+        <a href="{% url 'wszystkie_umowy'%}">
+            <button class="button-general button-menu active">Ewidencja umów</button></a>
+        <a href="{% url 'archiwalne_umowy'%}">
+            <button class="button-general button-menu">Archiwum umów</button></a>
+        <form method="get" class="search">
+            <input type="text"  placeholder="Wyszukaj umowę">
+            <button class="button-general button-menu button-search" type="submit">Szukaj</button>
+        </form>
     </nav>
 
 </div>
 
 
 {%for umowa in wszystkie%}
-
 <main class="lista">
     <ul class="lista_umow">
         <li class="lista-option">
             <p class="znacznik"><b>{{umowa}} </b></p>
-            <p class="info">{{umowa.typ_umowy}} <b>|</b> {{umowa.rodzaj_jedn}} {{umowa.miasto_jedn}}</p>
+            <p class="info">{{umowa.typ_umowy}} <b>|</b> {{umowa.rodzaj_jedn}} {{umowa.miasto_jedn}} <b>|</b>
+                {{umowa.powiaty_jedn}}</p>
         </li>
     </ul>
     <div>
-        <a href="{% url 'podglad_umowy' umowa.id %}"><button class="button-general">Podgląd</button></a>
-        <a href="{% url 'edytuj_umowe' umowa.id %}"><button class="button-general">Edytuj</button></a>
-        <a href="{% url 'usun_umowe' umowa.id %}"><button class="button-general buton-remove">Zarchiwizuj</button></a>
+        <a href="{% url 'podglad_umowy' umowa.id %}">
+            <button class="button-general">Podgląd</button></a>
+        <a href="{% url 'edytuj_umowe' umowa.id %}">
+            <button class="button-general">Edytuj</button></a>
+        <a href="{% url 'usun_umowe' umowa.id %}">
+            <button class="button-general button-remove">Zarchiwizuj</button></a>
 
     </div>
 </main>

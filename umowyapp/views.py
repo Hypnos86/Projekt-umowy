@@ -56,7 +56,14 @@ def usun_umowe(request, id):
     umowa = get_object_or_404(Umowy, pk=id)
     if request.method == "POST":
         umowa.deleted = 1
-        umowa.stan_umowy= Stan_umow.objects.get(id=2)
+        umowa.stan_umowy = Stan_umow.objects.get(id=2)
         umowa.save()
         return redirect(wszystkie_umowy)
     return render(request, 'usun.html', {'umowa': umowa})
+
+# @login_required
+# def szukaj(request):
+#     if request.method == "POST":
+#         szukane = request.POST['szukane']
+#
+#         return render(request, 'ewidencja.html', {'szukane': szukane})
