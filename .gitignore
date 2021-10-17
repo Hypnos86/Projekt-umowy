@@ -1,4 +1,4 @@
 #ignorowanie folderów
-
+__pycache__/
 **/.idea
 **/venv

@@ -83,7 +83,7 @@ class Umowy(models.Model):
     kod_pocztowy_jedn = models.CharField(max_length=6, null=True)
     skan_umowy = models.FileField(upload_to='umowy_pdf', null=True, blank=True)
 
-    stan_umowy = models.ForeignKey(Stan_umow, on_delete=models.CASCADE, null=False, blank=False)
+    stan_umowy = models.ForeignKey(Stan_umow, on_delete=models.CASCADE, blank=False, default=1)
     uwagi = models.TextField(null=True, blank=True, default="")
     deleted = models.BooleanField(null=False, default=0)
 
