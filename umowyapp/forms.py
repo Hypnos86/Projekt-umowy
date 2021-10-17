@@ -1,6 +1,9 @@
 from django.forms import ModelForm
+from django.forms import DateInput
 from .models import Umowy
 
+class DateField(DateInput):
+    input_type = "date"
 
 class UmowyForm(ModelForm):
     class Meta:
@@ -60,3 +63,4 @@ class UmowyForm(ModelForm):
                   'skan_umowy': 'Skan umowy',
                   'uwagi': 'Uwagi',
                   }
+        widgets = {'data_umowy': DateField()}

@@ -137,4 +137,4 @@ LOGOUT_REDIRECT_URL = 'login'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DATE_FORMAT = "d.m.Y"
+DATE_FORMAT = "dd/mm/YY"
