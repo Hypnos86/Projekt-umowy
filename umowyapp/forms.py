@@ -63,4 +63,6 @@ class UmowyForm(ModelForm):
                   'skan_umowy': 'Skan umowy',
                   'uwagi': 'Uwagi',
                   }
-        widgets = {'data_umowy': DateField()}
+        widgets = {'data_umowy': DateField(),
+                   'okres_obowiazywania': DateField()
+                   }
