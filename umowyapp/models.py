@@ -55,7 +55,7 @@ class Podstawa_prawna(models.Model):
 class Umowy(models.Model):
     data_umowy = models.DateField(null=False)
     nr_umowy = models.CharField(max_length=20, null=True, default="BRAK")
-    podstawa_prawna = models.ForeignKey(Podstawa_prawna, on_delete=models.CASCADE, null=True, blank=True)
+    podstawa_prawna = models.ForeignKey(Podstawa_prawna, on_delete=models.CASCADE, blank=True)
     nazwa_uzyczajacego = models.CharField(max_length=30, null=True)
     adres_uzyczajacego = models.CharField(max_length=30, null=True)
     kod_pocztowy_uzyczajacego = models.CharField(max_length=6, null=True)
@@ -83,7 +83,7 @@ class Umowy(models.Model):
     kod_pocztowy_jedn = models.CharField(max_length=6, null=True)
     skan_umowy = models.FileField(upload_to='umowy_pdf', null=True, blank=True)
 
-    stan_umowy = models.ForeignKey(Stan_umow, on_delete=models.CASCADE)
+    stan_umowy = models.ForeignKey(Stan_umow, on_delete=models.CASCADE, null=False, blank=False)
     uwagi = models.TextField(null=True, blank=True, default="")
     deleted = models.BooleanField(null=False, default=0)
 

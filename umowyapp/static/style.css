@@ -173,6 +173,10 @@ display:flex;
     margin: 3px;
 }
 
+.podglad_umow label{
+    margin: 10px 20px;
+}
+
 .button back{
     margin: 1px 8px auto auto;
     padding:2px;
@@ -209,4 +213,5 @@ embed{
 .formularz label{
     margin: 10px;
     display: block;
+
 }

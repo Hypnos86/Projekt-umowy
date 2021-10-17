@@ -3,10 +3,14 @@
 {%block tytul%} Dodawanie nowej umowy {%endblock%}
 
 {%block strona%}
-<h4> Dodawanie nowej umowy</h4>
+{%if nowy%}
+<h2> Dodawanie nowej umowy</h2>
+{%else%}
+<h2> Edytowanie umowy</h2>
+{%endif%}
 <form method="post" enctype="multipart/form-data">
     {%csrf_token%}
-    <fieldset>
+    <fieldset class="podglad_umow">
         <legend><b>Umowa:</b></legend>
         <div class="formularz">
             <label>Data umowy:<input type="date" value="{{umowa_form.data_umowy}}"></label>
@@ -16,7 +20,7 @@
             <label>Stan umowy:{{umowa_form.stan_umowy}}</label>
             <label>Powierzchnia użyczona [m<sup>2</sup>]:
                 <input type="number" placeholder="wpisz powierzchnie"
-                       value="{{umowa_form.pow_uzyczona}}"></label>
+                       value="{{umowa_form.pow_uzyczona.label}}"></label>
         </div>
         <div class="formularz">
             <label>Nazwa użyczającego:{{umowa_form.nazwa_uzyczajacego}}</label>
@@ -24,47 +28,62 @@
             <label>Kod pocztowy:{{umowa_form.kod_pocztowy_uzyczajacego}}</label>
             <label>Miasto:{{umowa_form.miasto_uzyczajacego}}</label>
             <label>Okres obowiąztwania:{{umowa_form.okres_obowiazywania}}</label>
+
+        </div>
+        <div class="formularz">
             <label>Skan umowy:{{umowa_form.skan_umowy}}</label>
+        </div>
+
+    </fieldset>
+
+    <fieldset class="podglad_umow">
+        <legend><b>Informacje o mediach:</b></legend>
+        <div class="formularz">
+            <label>Prąd: <input type="checkbox" value="{{umowa_form.rodzaj_kosztow_prad.label}}"><br>
+                {{umowa_form.informacje_prad}}</label>
+        </div>
+        <div class="formularz">
+            <label>Gaz: <input type="checkbox" value="{{umowa_form.rodzaj_kosztow_gaz.label}}"><br>
+                {{umowa_form.informacje_gaz}}</label>
+        </div>
+        <div class="formularz">
+            <label>Woda: <input type="checkbox" value="{{umowa_form.rodzaj_kosztow_woda.label}}"><br>
+                {{umowa_form.informacje_woda}}</label>
+        </div>
+        <div class="formularz">
+            <label> Centralne ogrzewanie: <input type="checkbox" value="{{umowa_form.rodzaj_kosztow_co.label}}"><br>
+                {{umowa_form.informacje_co}}</label>
         </div>
     </fieldset>
 
-    <fieldset>
-        <legend><b>Informacje o mediach:</b></legend>
-        <span>Prąd: <input type="checkbox" value="{{umowa_form.rodzaj_kosztow_prad}}"></span>
-        {{umowa_form.informacje_prad}}
-        {{umowa_form.rodzaj_kosztow_gaz}}
-        {{umowa_form.informacje_gaz}}
-        {{umowa_form.rodzaj_kosztow_woda}}
-        {{umowa_form.informacje_woda}}
-        {{umowa_form.rodzaj_kosztow_co}}
-        {{umowa_form.informacje_co}}
-    </fieldset>
-
-    <fieldset>
+    <fieldset class="podglad_umow">
         <legend><b>Jednostka Policji</b></legend>
-        {{umowa_form.powiaty_jedn}}
-        {{umowa_form.rodzaj_jedn}}
+        <label>Powiat: {{umowa_form.powiaty_jedn}}</label>
+        <label>Rodzaj jednostki: {{umowa_form.rodzaj_jedn}}</label>
+        <label>Adres: {{umowa_form.adres_jedn}}</label>
+        <label>Kod Pocztowy: {{umowa_form.kod_pocztowy_jedn}}</label>
+        <label>Miasto: {{umowa_form.miasto_jedn}}</label>
 
-        {{umowa_form.adres_jedn}}
-        {{umowa_form.miasto_jedn}}
-        {{umowa_form.kod_pocztowy_jedn}}
     </fieldset>
-    <label>Uwagi:{{umowa_form.uwagi}}</label>
+    <label>Uwagi: <br>{{umowa_form.uwagi}}</label>
 
 
     <!--        {{umowa_form|bootstrap}}-->
 
     {% if nowy %}
-    <button type="submit" class="button-general">Dodaj umowę</button>
-
+    <div>
+        <button type="submit" class="button-general">Dodaj umowę</button>
+    </div>
     {% else %}
-
-    <button type="submit" class="button-general">Edytuj umowę</button>
-
+    <div>
+        <button type="submit" class="button-general">Edytuj umowę</button>
+    </div>
     {% endif %}
 
 </form>
-
-<a href="{% url 'wszystkie_umowy'%}"><button class="button-general">Cofnij</button></a>
-
+<div>
+    <a href="{% url 'wszystkie_umowy'%}">
+        <button class="button-general">Cofnij</button>
+    </a>
+</div>
 {%endblock%}
