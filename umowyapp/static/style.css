@@ -199,5 +199,14 @@ embed{
 
 .cofni_podgląd{
     clear: left;
+}
 
+/*Fomularz*/
+.formularz {
+    display:inline-block;
+}
+
+.formularz label{
+    margin: 10px;
+    display: block;
 }

@@ -3,73 +3,68 @@
 {%block tytul%} Dodawanie nowej umowy {%endblock%}
 
 {%block strona%}
-<div>
-    <div>
-        <h4> Dodawanie nowej umowy</h4>
-        <form method="post" enctype="multipart/form-data">
-            {%csrf_token%}
+<h4> Dodawanie nowej umowy</h4>
+<form method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <fieldset>
+        <legend><b>Umowa:</b></legend>
+        <div class="formularz">
+            <label>Data umowy:<input type="date" value="{{umowa_form.data_umowy}}"></label>
+            <label>Nr umowy:{{umowa_form.nr_umowy}}</label>
+            <label>Podstawa prawna: {{umowa_form.podstawa_prawna}}</label>
+            <label>Typ umowy:{{umowa_form.typ_umowy}}</label>
+            <label>Stan umowy:{{umowa_form.stan_umowy}}</label>
+            <label>Powierzchnia użyczona [m<sup>2</sup>]:
+                <input type="number" placeholder="wpisz powierzchnie"
+                       value="{{umowa_form.pow_uzyczona}}"></label>
+        </div>
+        <div class="formularz">
+            <label>Nazwa użyczającego:{{umowa_form.nazwa_uzyczajacego}}</label>
+            <label>Adres:{{umowa_form.adres_uzyczajacego}}</label>
+            <label>Kod pocztowy:{{umowa_form.kod_pocztowy_uzyczajacego}}</label>
+            <label>Miasto:{{umowa_form.miasto_uzyczajacego}}</label>
+            <label>Okres obowiąztwania:{{umowa_form.okres_obowiazywania}}</label>
+            <label>Skan umowy:{{umowa_form.skan_umowy}}</label>
+        </div>
+    </fieldset>
 
-            <form>
-                <fieldset>
-                    <legend><b>Umowa:</b></legend>
-                    <div><label>Data umowy:</label><input type="date" value="{{umowa_form.data_umowy}}"></div>
-                    <label>Nr umowy:</label>{{umowa_form.nr_umowy}}
-                    <label>Podstawa prawna:</label>{{umowa_form.podstawa_prawna}}
-                    <label>Typ umowy:</label>{{umowa_form.typ_umowy}}
-                    <label>Stan umowy:</label>{{umowa_form.stan_umowy}}
-                    <label>Powierzchnia użyczona [m<sup>2</sup>]:</label>
-                    <input type="number" placeholder="wpisz powierzchnie" value="{{umowa_form.pow_uzyczona}}"></p>
-                    <label>Nazwa:</label>{{umowa_form.nazwa_uzyczajacego}}
-                    <label>Adres:</label>{{umowa_form.adres_uzyczajacego}}
-                    <label>Kod pocztowy:</label>{{umowa_form.kod_pocztowy_uzyczajacego}}
-                    <label>Miasto:</label>{{umowa_form.miasto_uzyczajacego}}
-                    <label>Okres obowiąztwania:</label>{{umowa_form.okres_obowiazywania}}
-                    <label>Skan umowy:</label>{{umowa_form.skan_umowy}}
-                </fieldset>
-            </form>
+    <fieldset>
+        <legend><b>Informacje o mediach:</b></legend>
+        <span>Prąd: <input type="checkbox" value="{{umowa_form.rodzaj_kosztow_prad}}"></span>
+        {{umowa_form.informacje_prad}}
+        {{umowa_form.rodzaj_kosztow_gaz}}
+        {{umowa_form.informacje_gaz}}
+        {{umowa_form.rodzaj_kosztow_woda}}
+        {{umowa_form.informacje_woda}}
+        {{umowa_form.rodzaj_kosztow_co}}
+        {{umowa_form.informacje_co}}
+    </fieldset>
 
-            <form>
-                <fieldset>
-                    <legend><b>Informacje o mediach:</b></legend>
-                    <span>Prąd: <input type="checkbox" value="{{umowa_form.rodzaj_kosztow_prad}}"></span>
-                    {{umowa_form.informacje_prad}}
-                    {{umowa_form.rodzaj_kosztow_gaz}}
-                    {{umowa_form.informacje_gaz}}
-                    {{umowa_form.rodzaj_kosztow_woda}}
-                    {{umowa_form.informacje_woda}}
-                    {{umowa_form.rodzaj_kosztow_co}}
-                    {{umowa_form.informacje_co}}
-                </fieldset>
-            </form>
+    <fieldset>
+        <legend><b>Jednostka Policji</b></legend>
+        {{umowa_form.powiaty_jedn}}
+        {{umowa_form.rodzaj_jedn}}
 
-            <form>
-                <fieldset>
-                    <legend><b>Jednostka Policji</b></legend>
-                    {{umowa_form.powiaty_jedn}}
-                    {{umowa_form.rodzaj_jedn}}
-
-                    {{umowa_form.adres_jedn}}
-                    {{umowa_form.miasto_jedn}}
-                    {{umowa_form.kod_pocztowy_jedn}}
-                </fieldset>
-            </form>
-            <label>Uwagi: </label>
-            {{umowa_form.uwagi}}
+        {{umowa_form.adres_jedn}}
+        {{umowa_form.miasto_jedn}}
+        {{umowa_form.kod_pocztowy_jedn}}
+    </fieldset>
+    <label>Uwagi:{{umowa_form.uwagi}}</label>
 
 
-            <!--            {{umowa_form|bootstrap}}-->
-            {% if nowy %}
-            <button type="submit" class="button-general">Dodaj umowę</button>
+    <!--        {{umowa_form|bootstrap}}-->
 
-            {% else %}
+    {% if nowy %}
+    <button type="submit" class="button-general">Dodaj umowę</button>
 
+    {% else %}
 
-            <button type="submit" class="button-general">Edytuj umowę</button>
-            {% endif %}
-        </form>
-    </div>
-    <a href="{% url 'wszystkie_umowy'%}">
-        <button class="button-general">Cofnij</button>
-    </a>
-</div>
+    <button type="submit" class="button-general">Edytuj umowę</button>
+
+    {% endif %}
+
+</form>
+
+<a href="{% url 'wszystkie_umowy'%}"><button class="button-general">Cofnij</button></a>
+
 {%endblock%}
