@@ -64,7 +64,7 @@ class Umowy(models.Model):
 
     typ_umowy = models.ForeignKey(Rodzaj_umowy, on_delete=models.CASCADE, null=False)
 
-    pow_uzyczona = models.FloatField(max_length=4, null=True, blank=True)
+    pow_uzyczona = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
 
     rodzaj_kosztow_prad = models.BooleanField()
     informacje_prad = models.TextField(null=True, default="---Niezbędne informacje---")
