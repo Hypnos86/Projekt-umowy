@@ -67,13 +67,13 @@ class Umowy(models.Model):
     pow_uzyczona = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
 
     rodzaj_kosztow_prad = models.BooleanField()
-    informacje_prad = models.TextField(null=True, default="---Niezbędne informacje---")
+    informacje_prad = models.TextField(blank=True, default="")
     rodzaj_kosztow_gaz = models.BooleanField()
-    informacje_gaz = models.TextField(null=True, default="---Niezbędne informacje---")
+    informacje_gaz = models.TextField(blank=True, default="")
     rodzaj_kosztow_woda = models.BooleanField()
-    informacje_woda = models.TextField(null=True, default="---Niezbędne informacje---")
+    informacje_woda = models.TextField(blank=True, default="")
     rodzaj_kosztow_co = models.BooleanField()
-    informacje_co = models.TextField(null=True, default="---Niezbędne informacje---")
+    informacje_co = models.TextField(blank=True, default="")
 
     powiaty_jedn = models.ForeignKey(Powiaty_Wlkp, on_delete=models.CASCADE)
     rodzaj_jedn = models.ForeignKey(Rodzaje_jednostek, on_delete=models.CASCADE)
@@ -84,7 +84,7 @@ class Umowy(models.Model):
     skan_umowy = models.FileField(upload_to='umowy_pdf', null=True, blank=True)
 
     stan_umowy = models.ForeignKey(Stan_umow, on_delete=models.CASCADE, blank=False, default=1)
-    uwagi = models.TextField(null=True, blank=True, default="")
+    uwagi = models.TextField(blank=True, default="")
     deleted = models.BooleanField(null=False, default=0)
 
     def __str__(self):
