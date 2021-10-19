@@ -13,14 +13,12 @@
     <fieldset class="podglad_umow">
         <legend><b>Umowa:</b></legend>
         <div class="formularz">
-            <label>Data umowy:</label>{{umowa_form.data_umowy}}
-            <label>Nr umowy:{{umowa_form.nr_umowy}}</label>
+            <label>Data umowy: </label>{{umowa_form.data_umowy}}
+            <label>Nr umowy: {{umowa_form.nr_umowy}}</label>
             <label>Podstawa prawna: {{umowa_form.podstawa_prawna}}</label>
-            <label>Typ umowy:{{umowa_form.typ_umowy}}</label>
-            <label>Stan umowy:{{umowa_form.stan_umowy}}</label>
-            <label>Powierzchnia użyczona [m<sup>2</sup>]:
-                <input type="text" placeholder="wpisz powierzchnie"
-                       value=""{{umowa_form.pow_uzyczona.value}}"></label>
+            <label>Typ umowy: {{umowa_form.typ_umowy}}</label>
+            <label>Stan umowy: {{umowa_form.stan_umowy}}</label>
+            <label>Powierzchnia użyczona [m<sup>2</sup>]: <input type="number" step="any" placeholder="wpisz powierzchnie" value={{umowa_form.pow_uzyczona.value}}></label>
         </div>
         <div class="formularz">
             <label>Nazwa użyczającego:{{umowa_form.nazwa_uzyczajacego}}</label>

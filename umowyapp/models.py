@@ -62,7 +62,7 @@ class Umowy(models.Model):
     miasto_uzyczajacego = models.CharField(max_length=20, null=True)
     okres_obowiazywania = models.DateField(blank=True, default="")
 
-    typ_umowy = models.ForeignKey(Rodzaj_umowy, on_delete=models.CASCADE, null=False)
+    typ_umowy = models.ForeignKey(Rodzaj_umowy, on_delete=models.CASCADE)
 
     pow_uzyczona = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
 
