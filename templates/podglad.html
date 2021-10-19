@@ -29,7 +29,7 @@
 
                     {%if podglad.rodzaj_kosztow_prad == True%}
                     <form>
-                    <fieldset>
+                    <fieldset class="media">
                         <legend class="aktywne"> Prąd - informacje o kosztach: </legend>
                     <p>{{podglad.informacje_prad}}</p>
                     </fieldset>
@@ -38,7 +38,7 @@
 
                     {%if podglad.rodzaj_kosztow_gaz == True%}
                       <form>
-                    <fieldset>
+                    <fieldset class="media">
                         <legend class="aktywne"> Gaz - informacje o kosztach: </legend>
                     <p>{{podglad.informacje_gaz}}</p>
                     
@@ -48,7 +48,7 @@
 
                     {%if podglad.rodzaj_kosztow_woda == True%}
                      <form>
-                    <fieldset>
+                    <fieldset class="media">
                         <legend class="aktywne"> Woda - informacje o kosztach: </legend>
                     <p>{{podglad.informacje_woda}}</p>
                     </fieldset>
@@ -57,7 +57,7 @@
 
                     {%if podglad.rodzaj_kosztow_co == True%}
                     <form>
-                    <fieldset>
+                    <fieldset class="media">
                         <legend class="aktywne"> Centralne ogrzewanie - informacje o kosztach: </legend>
                     <p>{{informacje_co}}</p>
                     </fieldset>
@@ -73,7 +73,6 @@
             <a href="{% url 'wszystkie_umowy'%}"><button class="button-general button-back">Cofnij</button></a>
         </div>
     </div>
-
 
     <div class="pdf_viev">
         {%if podglad.skan_umowy %}

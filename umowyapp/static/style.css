@@ -154,7 +154,7 @@ nav{
 }
 
 .aktywne::before{
-    content:"\2714";
+    content:"\2705";
 }
 
 section{
@@ -185,6 +185,10 @@ display:flex;
 fieldset{
     border: solid 3px hsl(205,91%,35%);
     border-radius: 10px;
+}
+
+.media {
+    margin:20px;
 }
 
 /*widok pdf */

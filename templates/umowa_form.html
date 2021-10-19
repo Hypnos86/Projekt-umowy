@@ -17,19 +17,21 @@
             <label>Nr umowy: {{umowa_form.nr_umowy}}</label>
             <label>Podstawa prawna: {{umowa_form.podstawa_prawna}}</label>
             <label>Typ umowy: {{umowa_form.typ_umowy}}</label>
-            <label>Stan umowy: {{umowa_form.stan_umowy}}</label>
-            <label>Powierzchnia użyczona [m<sup>2</sup>]: <input type="number" step="any" placeholder="wpisz powierzchnie" value={{umowa_form.pow_uzyczona.value}}></label>
+            <label>Stan umowy: {{umowa_form.stan_umowy}} </label>
+            <label>Powierzchnia użyczona [m<sup>2</sup>]: <input type="number" step="any" name="pow_uzyczona"
+                                                                 placeholder="wpisz powierzchnie"
+                                                                 value={{umowa_form.pow_uzyczona.value}}></label>
         </div>
         <div class="formularz">
-            <label>Nazwa użyczającego:{{umowa_form.nazwa_uzyczajacego}}</label>
-            <label>Adres:{{umowa_form.adres_uzyczajacego}}</label>
-            <label>Kod pocztowy:{{umowa_form.kod_pocztowy_uzyczajacego}}</label>
-            <label>Miasto:{{umowa_form.miasto_uzyczajacego}}</label>
-            <label>Okres obowiąztwania:{{umowa_form.okres_obowiazywania}}</label>
+            <label>Nazwa użyczającego: {{umowa_form.nazwa_uzyczajacego}}</label>
+            <label>Adres: {{umowa_form.adres_uzyczajacego}}</label>
+            <label>Kod pocztowy: {{umowa_form.kod_pocztowy_uzyczajacego}}</label>
+            <label>Miasto: {{umowa_form.miasto_uzyczajacego}}</label>
+            <label>Okres obowiąztwania: {{umowa_form.okres_obowiazywania}}</label>
 
         </div>
         <div class="formularz">
-            <label>Skan umowy:{{umowa_form.skan_umowy}}</label>
+            <label>Skan umowy: {{umowa_form.skan_umowy}}</label>
         </div>
 
     </fieldset>
@@ -37,19 +39,19 @@
     <fieldset class="podglad_umow">
         <legend><b>Informacje o mediach:</b></legend>
         <div class="formularz">
-            <label>Prąd: <input type="checkbox" value="{{umowa_form.rodzaj_kosztow_prad.value}}"><br>
+            <label>{{umowa_form.rodzaj_kosztow_prad.label}}: {{umowa_form.rodzaj_kosztow_prad}}<br>
                 {{umowa_form.informacje_prad}}</label>
         </div>
         <div class="formularz">
-            <label>Gaz: <input type="checkbox" value="{{umowa_form.rodzaj_kosztow_gaz.label}}"><br>
+            <label>{{umowa_form.rodzaj_kosztow_gaz.label}}: {{umowa_form.rodzaj_kosztow_gaz}}<br>
                 {{umowa_form.informacje_gaz}}</label>
         </div>
         <div class="formularz">
-            <label>Woda: <input type="checkbox" value="{{umowa_form.rodzaj_kosztow_woda.label}}"><br>
+            <label>{{umowa_form.rodzaj_kosztow_woda.label}}: {{umowa_form.rodzaj_kosztow_woda}}<br>
                 {{umowa_form.informacje_woda}}</label>
         </div>
         <div class="formularz">
-            <label> Centralne ogrzewanie: <input type="checkbox" value="{{umowa_form.rodzaj_kosztow_co.label}}"><br>
+            <label>{{umowa_form.rodzaj_kosztow_co.label}}: {{umowa_form.rodzaj_kosztow_co}}<br>
                 {{umowa_form.informacje_co}}</label>
         </div>
     </fieldset>
