@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django.forms import DateInput
-from .models import Umowy
+from .models import Umowa
 
 
 class DateField(DateInput):
@@ -9,7 +9,7 @@ class DateField(DateInput):
 
 class UmowyForm(ModelForm):
     class Meta:
-        model = Umowy
+        model = Umowa
         fields = ['data_umowy',
                   'nr_umowy',
                   'podstawa_prawna',
