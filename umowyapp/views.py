@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Rodzaje_jednostek, Umowa, Stan_umow
+from .models import Umowa, Stan_umow, Aneksy, Rodzaje_jednostek
 from .forms import UmowyForm
+from .forms import AneksForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -44,10 +45,14 @@ def podglad_umow(request, id):
 def edytuj_umowe(request, id):
     umowa_edit = get_object_or_404(Umowa, pk=id)
     umowa_form = UmowyForm(request.POST or None, request.FILES or None, instance=umowa_edit)
+    # aneks_edit = get_object_or_404(Aneksy, pk=id)
+    # aneks_form = AneksForm(request.POST or None, request.FILES or None, instance=aneks_edit)
 
     if umowa_form.is_valid():
         umowa_form.save()
+
         return redirect(wszystkie_umowy)
+
     return render(request, 'umowa_form.html', {'umowa_form': umowa_form, 'nowy': False})
 
 

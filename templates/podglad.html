@@ -16,18 +16,19 @@
 
         <form class="podglad_umow">
             <fieldset>
-                <legend> <b>Informacje</b></legend>
+                <legend><b>Informacje</b></legend>
                 <ul>
-                    <li> <label>Data umowy: {{podglad.data_umowy}}</label></li>
-                    <li> <label>Użyczający: {{podglad.nazwa_uzyczajacego }}</label></li>
-                    <li> <label> Adres: {{podglad.adres_uzyczajacego}},
+                    <li><label>Data umowy: {{podglad.data_umowy}}</label></li>
+                    <li><label>Użyczający: {{podglad.nazwa_uzyczajacego }}</label></li>
+                    <li><label> Adres: {{podglad.adres_uzyczajacego}},
                         {{podglad.kod_pocztowy_uzyczajacego}} {{podglad.miasto_uzyczajacego}}</label>
                     </li>
-                    <li> <label>Data zakończenia: {{podglad.okres_obowiazywania}}</label></li>
-                    <li> <label>Typ umowy: {{podglad.typ_umowy}}</label></li>
-                    <li> <label>Powierzchnia w m<sup>2</sup>: {{podglad.pow_uzyczona}}</label></li>
+                    <li><label>Data zakończenia: {{podglad.okres_obowiazywania}}</label></li>
+                    <li><label>Typ umowy: {{podglad.typ_umowy}}</label></li>
+                    <li><label>Powierzchnia w m<sup>2</sup>: {{podglad.pow_uzyczona}}</label></li>
 
                     {%if podglad.rodzaj_kosztow_prad == True%}
+
                     <form>
                     <fieldset class="media-podgląd">
                         <legend class="aktywne"> Prąd - informacje o kosztach: </legend>
@@ -66,11 +67,14 @@
                     <li> <label>Stan umowy: {{podglad.stan_umowy}}</label></li>
                     <li> <label>Uwagi: {{podglad.uwagi}}</label></li>
 
+
                 </ul>
             </fieldset>
         </form>
         <div class="cofni_podgląd">
-            <a href="{% url 'wszystkie_umowy'%}"><button class="button-general button-back">Cofnij</button></a>
+            <a href="{% url 'wszystkie_umowy'%}">
+                <button class="button-general button-back">Cofnij</button>
+            </a>
         </div>
     </div>
 
@@ -82,6 +86,8 @@
         <h4>Miejsce na skan umowy</h4>
 
         {%endif%}
+        {{aneks_form}}
     </div>
+
 </section>
 {%endblock%}
