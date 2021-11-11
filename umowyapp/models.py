@@ -61,11 +61,8 @@ class Umowa(models.Model):
     kod_pocztowy_uzyczajacego = models.CharField(max_length=6, null=True)
     miasto_uzyczajacego = models.CharField(max_length=20, null=True)
     okres_obowiazywania = models.DateField(blank=True, default="")
-
     typ_umowy = models.ForeignKey(Rodzaj_umowy, on_delete=models.CASCADE)
-
     pow_uzyczona = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
-
     rodzaj_kosztow_prad = models.BooleanField()
     informacje_prad = models.TextField(blank=True, default="")
     rodzaj_kosztow_gaz = models.BooleanField()
@@ -74,18 +71,17 @@ class Umowa(models.Model):
     informacje_woda = models.TextField(blank=True, default="")
     rodzaj_kosztow_co = models.BooleanField()
     informacje_co = models.TextField(blank=True, default="")
-
     powiaty_jedn = models.ForeignKey(Powiaty_Wlkp, on_delete=models.CASCADE)
     rodzaj_jedn = models.ForeignKey(Rodzaje_jednostek, on_delete=models.CASCADE)
-
     adres_jedn = models.CharField(max_length=30, null=True)
     miasto_jedn = models.CharField(max_length=20, null=True)
     kod_pocztowy_jedn = models.CharField(max_length=6, null=True)
     skan_umowy = models.FileField(upload_to='umowy_pdf', null=True, blank=True)
-
     stan_umowy = models.ForeignKey(Stan_umow, on_delete=models.CASCADE, blank=False, default=1)
     uwagi = models.TextField(blank=True, default="")
     deleted = models.BooleanField(null=False, default=0)
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.umowa_z_data()

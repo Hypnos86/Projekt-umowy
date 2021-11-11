@@ -1,12 +1,14 @@
 from django.contrib import admin
 from .models import Umowa, Powiaty_Wlkp, Rodzaje_jednostek, Stan_umow, Rodzaj_umowy, Podstawa_prawna, Aneksy
 
+
 # Register your models here.
 # admin.site.register(Umowy)
 @admin.register(Umowa)
 class UmowyAdmin(admin.ModelAdmin):
     list_filter = ["powiaty_jedn"]
     search_fields = ["nr_umowy"]
+
 
 admin.site.register(Powiaty_Wlkp)
 admin.site.register(Rodzaje_jednostek)
