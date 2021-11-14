@@ -86,13 +86,13 @@ nav{
 
 .search input{
     width:250px;
-    border: solid 3px hsl(205,91%,35%);
+    border: solid 3px white;
     height:25px;
     border-radius: 10px;
 }
 
 .search input:focus{
-    border: solid 3px white;
+    border: solid 3px hsl(205,91%,35%);
     outline: none;
 }
 
