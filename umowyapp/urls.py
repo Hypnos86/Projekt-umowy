@@ -17,7 +17,7 @@ from django.urls import path
 from umowyapp.views import wszystkie_umowy, archiwalne_umowy, nowe_umowy, edytuj_umowe, usun_umowe, podglad_umow
 
 urlpatterns = [
-    path('ewidencja/', wszystkie_umowy, name="wszystkie_umowy"),
+    path('', wszystkie_umowy, name="wszystkie_umowy"),
     path('archiwum/', archiwalne_umowy, name="archiwalne_umowy"),
     path('umowa_form/', nowe_umowy, name="nowe_umowy"),
     path('edytuj/<int:id>/', edytuj_umowe, name="edytuj_umowe"),

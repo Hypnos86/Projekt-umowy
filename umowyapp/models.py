@@ -54,13 +54,14 @@ class Podstawa_prawna(models.Model):
 
 class Umowy(models.Model):
     data_umowy = models.DateField(null=False)
-    nr_umowy = models.CharField(max_length=20, null=True, default="BRAK")
-    podstawa_prawna = models.ForeignKey(Podstawa_prawna, on_delete=models.CASCADE, blank=True)
+    nr_umowy = models.CharField(max_length=20, default="BRAK", blank=True)
+    podstawa_prawna = models.ForeignKey(Podstawa_prawna, on_delete=models.CASCADE, null=True, blank=True)
     nazwa_uzyczajacego = models.CharField(max_length=30, null=True)
     adres_uzyczajacego = models.CharField(max_length=30, null=True)
     kod_pocztowy_uzyczajacego = models.CharField(max_length=6, null=True)
     miasto_uzyczajacego = models.CharField(max_length=20, null=True)
-    okres_obowiazywania = models.DateField(blank=True, default="")
+    okres_obowiazywania = models.DateField(null=True, blank=True, default="")
+    termin_platnosci = models.CharField(max_length=100, blank=True, default="")
 
     typ_umowy = models.ForeignKey(Rodzaj_umowy, on_delete=models.CASCADE)
 
@@ -81,7 +82,7 @@ class Umowy(models.Model):
     adres_jedn = models.CharField(max_length=30, null=True)
     miasto_jedn = models.CharField(max_length=20, null=True)
     kod_pocztowy_jedn = models.CharField(max_length=6, null=True)
-    skan_umowy = models.FileField(upload_to='umowy_pdf', null=True, blank=True)
+    skan_umowy = models.FileField(upload_to='umowy_pdf', blank=True)
 
     stan_umowy = models.ForeignKey(Stan_umow, on_delete=models.CASCADE, blank=False, default=1)
     uwagi = models.TextField(blank=True, default="")
