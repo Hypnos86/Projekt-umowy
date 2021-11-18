@@ -4,27 +4,10 @@
 
 {%block strona%}
 
-{% if user.is_authenticated%}
-<div class="element_login">
-    <div class="user_name">
-        <h3>Zalogowany użytkownik: {{user.first_name}} (ID: {{ user.username}})</h3>
-    </div>
-    <div class="button-logout">
-        <a href="{%url 'logout'%}">
-            <button class="button-general">Wyloguj</button>
-        </a>
-    </div>
-</div>
-{%else%}
-<a href="{%url 'login'%}">Login</a>
-{%endif%}
-
-<hr>
-
 <div class="ewidencja-title">
     <h2 class="title">Wydział Inwestycji i Remontów KWP w Poznaniu</h2>
     <h3 class="title">Ewidencja umów najmu i użyczenia</h3>
-    <h4 class="info-umowy">Ilość umów w bazie: {{wszystkie|length}}</h4>
+    <h4 class="info-umowy">Ilość umów aktualnych: {{wszystkie|length}}</h4>
     <h4 class="info-umowy">Ilość umów w archiwum: {{archiwalne|length}}</h4>
     <hr>
     <nav>

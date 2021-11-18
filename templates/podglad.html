@@ -5,11 +5,11 @@
 {%block strona%}
 <section xmlns="http://www.w3.org/1999/html">
     <div class="podglad_box">
-        <h2 class="naglowek_podglad">Podgląd umowy {{podglad.nr_umowy}}<br>z dnia {{podglad.data_umowy}}</h2>
+        <h3 class="naglowek_podglad">Podgląd umowy {{podglad.nr_umowy}}<br>z dnia {{podglad.data_umowy}}</h3>
 
         <form class="podglad_umow">
             <fieldset>
-                <legend><b>Dotyczy</b></legend>
+                <legend><b>Dotyczy obiektu</b></legend>
                 <span>{{podglad.rodzaj_jedn}} {{podglad.adres_jedn}}, {{podglad.kod_pocztowy_jedn}} {{podglad.miasto_jedn}} ({{podglad.powiaty_jedn}})</span>
             </fieldset>
         </form>
@@ -71,23 +71,24 @@
                 </ul>
             </fieldset>
         </form>
+        {%if aneks%}
+        <div>
+            {%for a in aneks%}
+            <a href="#" about="blank"><button>Podgląd aneksu</button></a>
+            {%endfor%}
+        </div>
+        {%endif%}
         <div class="cofni_podgląd">
-            <a href="{% url 'wszystkie_umowy'%}">
-                <button class="button-general button-back">Cofnij</button>
-            </a>
+            <a href="{% url 'wszystkie_umowy'%}"><button class="button-general button-back">Cofnij</button></a>
         </div>
     </div>
-
-    <div class="pdf_viev">
         {%if podglad.skan_umowy %}
+        <div class="pdf_viev">
         <embed src="/doc/{{podglad.skan_umowy}}#toolbar=0" type="application/pdf"/>
-        {%else%}
-
-        <h4>Miejsce na skan umowy</h4>
-
+        </div>
         {%endif%}
-        {{aneks_form}}
-    </div>
+
+
 
 </section>
 {%endblock%}

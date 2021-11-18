@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Umowa, Stan_umow, Aneksy, Rodzaje_jednostek
 from .forms import UmowyForm
-from .forms import AneksForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -66,9 +65,10 @@ def usun_umowe(request, id):
         return redirect(wszystkie_umowy)
     return render(request, 'usun.html', {'umowa': umowa})
 
-# @login_required
-# def szukaj(request):
-#     if request.method == "POST":
-#         szukane = request.POST['szukane']
-#
-#         return render(request, 'ewidencja.html', {'szukane': szukane})
+
+@login_required
+def wyswietl_aneks(request, id_aneks):
+    aneks = Aneksy.objects.get(pk=id_aneks)
+    context = {'aneks': aneks}
+
+    return render(request, 'podglad.html', context)

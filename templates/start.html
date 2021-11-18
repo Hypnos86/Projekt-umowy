@@ -14,7 +14,15 @@
 
 </head>
 <body>
-
+{% if user.is_authenticated%}
+<nav class="element_login">
+    <h3 class="user_name">Zalogowany użytkownik: {{user.first_name}} (ID: {{user.username}})</h3>
+    <a href="{%url 'logout'%}"><button class="button-logout">Wyloguj</button></a>
+</nav>
+{%else%}
+<a href="{%url 'login'%}">Login</a>
+{%endif%}
+<hr class="hr">
             {%block strona%} {%endblock%}
 </body>
 </html>

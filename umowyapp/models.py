@@ -54,7 +54,7 @@ class Podstawa_prawna(models.Model):
 
 class Umowa(models.Model):
     data_umowy = models.DateField(null=False)
-    nr_umowy = models.CharField(max_length=20, null=True, default="BRAK")
+    nr_umowy = models.CharField(max_length=20, blank=True, default="BRAK")
     podstawa_prawna = models.ForeignKey(Podstawa_prawna, on_delete=models.CASCADE, blank=True)
     nazwa_uzyczajacego = models.CharField(max_length=30, null=True)
     adres_uzyczajacego = models.CharField(max_length=30, null=True)

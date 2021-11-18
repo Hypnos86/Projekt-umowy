@@ -4,9 +4,9 @@
 
 {%block strona%}
 {%if nowy%}
-<h2 xmlns="http://www.w3.org/1999/html"> Dodawanie nowej umowy</h2>
+<h2 class="naglowki_form">Dodawanie nowej umowy</h2>
 {%else%}
-<h2> Edytowanie umowy</h2>
+<h2 class="naglowki_form"> Edytowanie umowy</h2>
 {%endif%}
 <form method="post" enctype="multipart/form-data">
     {%csrf_token%}
@@ -14,24 +14,24 @@
         <legend><b>Umowa:</b></legend>
         <div class="formularz">
             <label>Data umowy: </label>{{umowa_form.data_umowy}}
-            <label>Nr umowy: {{umowa_form.nr_umowy}}</label>
-            <label>Podstawa prawna: {{umowa_form.podstawa_prawna}}</label>
-            <label>Typ umowy: {{umowa_form.typ_umowy}}</label>
-            <label>Stan umowy: {{umowa_form.stan_umowy}} </label>
-            <label>Powierzchnia użyczona [m<sup>2</sup>]: <input type="number" step="any" name="pow_uzyczona"
+            <label>Nr umowy: </label>{{umowa_form.nr_umowy}}
+            <label>Podstawa prawna:</label> {{umowa_form.podstawa_prawna}}
+            <label>Typ umowy:</label> {{umowa_form.typ_umowy}}
+            <label>Stan umowy:</label> {{umowa_form.stan_umowy}}
+            <label>Powierzchnia użyczona [m<sup>2</sup>]:</label> <input type="number" step="any" name="pow_uzyczona"
                                                                  placeholder="wpisz powierzchnie"
                                                                  value={{umowa_form.pow_uzyczona.value}}></label>
         </div>
         <div class="formularz">
-            <label>Nazwa użyczającego: {{umowa_form.nazwa_uzyczajacego}}</label>
-            <label>Adres: {{umowa_form.adres_uzyczajacego}}</label>
-            <label>Kod pocztowy: {{umowa_form.kod_pocztowy_uzyczajacego}}</label>
-            <label>Miasto: {{umowa_form.miasto_uzyczajacego}}</label>
-            <label>Okres obowiąztwania: {{umowa_form.okres_obowiazywania}}</label>
+            <label>Nazwa użyczającego:</label> {{umowa_form.nazwa_uzyczajacego}}
+            <label>Adres:</label> {{umowa_form.adres_uzyczajacego}}
+            <label>Kod pocztowy:</label> {{umowa_form.kod_pocztowy_uzyczajacego}}
+            <label>Miasto:</label> {{umowa_form.miasto_uzyczajacego}}
+            <label>Okres obowiąztwania:</label> {{umowa_form.okres_obowiazywania}}
 
         </div>
         <div class="formularz">
-            <label>Skan umowy: {{umowa_form.skan_umowy}}</label>
+            <label>Skan umowy:</label> {{umowa_form.skan_umowy}}
         </div>
 
     </fieldset>
@@ -56,13 +56,13 @@
         </div>
     </fieldset>
 
-    <fieldset class="podglad_umow">
-        <legend><b>Jednostka Policji: </b></legend>
-        <label>Powiat: {{umowa_form.powiaty_jedn}}</label>
-        <label>Rodzaj jednostki: {{umowa_form.rodzaj_jedn}}</label>
-        <label>Adres: {{umowa_form.adres_jedn}}</label>
-        <label>Kod Pocztowy: {{umowa_form.kod_pocztowy_jedn}}</label>
-        <label>Miasto: {{umowa_form.miasto_jedn}}</label>
+    <fieldset class="formularz">
+        <legend><b>Jednostka Policji:</b></legend>
+        <label class="adres_jednostki">Powiat: <br> {{umowa_form.powiaty_jedn}}</label>
+        <label>Rodzaj jednostki:<br> {{umowa_form.rodzaj_jedn}}</label>
+        <label>Adres:<br> {{umowa_form.adres_jedn}}</label>
+        <label>Kod Pocztowy:<br> {{umowa_form.kod_pocztowy_jedn}}</label>
+        <label>Miasto:<br> {{umowa_form.miasto_jedn}}</label>
 
     </fieldset>
     <div>

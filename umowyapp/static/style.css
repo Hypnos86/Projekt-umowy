@@ -1,6 +1,7 @@
 /*wszystkie strony*/
 body{
-    color: rgb(33, 36, 53);
+    color: #2F4F4F;
+    /*rgb(33, 36, 53);*/
     background-color: hsl(85,67%,96%);
     padding: 1rem 1%;
     font-family: arial;
@@ -11,14 +12,41 @@ body{
 .user_name{
     float: left;
 }
+.button-wyloguj{
+    padding: 0 0 0 0;
+}
 
 .button-logout{
     float: right;
+    display:inline-block;
+    background-color: hsl(212,88%,27%);
+    color: hsl(109,49%,85%);
+    width: auto;
+    margin-top: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    padding:10px;
+    border-radius: 10px;
+    border-style: none;
+    top:50;
+    -webkit-transition: all 1s ease;
+    /*transition: all 1s ease;*/
 }
 
-hr{
-    clear: both;
+.button-logout:hover{
+    background-color: hsl(205,91%,35%);
+    color: hsl(107,50%,91%);
+    transform: scale(1.1)
 }
+
+
+.hr{
+    clear: both;
+    border: 2px solid hsl(212,88%,27%);
+    width: 80%;
+    margin:0.5% auto;
+}
+
 
 /*strona główna - ewidencja*/
 .ewidencja-title{
@@ -34,9 +62,6 @@ hr{
 
 .info-umowy{
     margin: 5px;
-}
-nav{
-    width: auto;
 }
 
 .button-general {
@@ -95,6 +120,27 @@ nav{
     border: solid 3px hsl(205,91%,35%);
     outline: none;
 }
+input, textarea, select{
+    display:inline-block;
+    width: 200px;
+    border: solid 2px grey;
+    height: 25px;
+    border-radius: 10px;
+    font-family: arial;
+
+}
+input:focus{
+    border: solid 2px hsl(205,91%,35%);
+    outline: none;}
+
+textarea:focus{
+    border: solid 2px hsl(205,91%,35%);
+    outline: none;}
+
+select:focus{
+    border: solid 2px hsl(205,91%,35%);
+    outline: none;}
+
 
 .button-search{
     width:120px;
@@ -162,6 +208,7 @@ display:flex;
 }
 .naglowek_podglad{
     text-align:center;
+    margin:5px;
 }
 
 .podglad_umow{
@@ -190,6 +237,15 @@ fieldset{
 .media-podgląd {
     margin:20px;
 }
+/*formularz*/
+.naglowki_form{
+    text-align:center;
+}
+
+.adres_jednostki label{
+     margin: auto;
+
+}
 
 /*widok pdf */
 .pdf_viev{
@@ -212,23 +268,42 @@ embed{
 /*Fomularz*/
 .formularz {
     display:inline-block;
+    width:33%;
+}
 
-    }
+.formularz label{
+    width: auto;
+    padding-top: 10px;
+}
 
-.formularz_media{
-    display:inline-block;
-    margin: 0 1%;
+.formularz select{
+    width: 210px;
+    height: 30px;
+
 }
 
 
+.formularz_media{
+    display:inline-block;
+    margin: 0 10px;
+}
+
+.formularz_media input{
+    width: auto;
+    height: auto;
+}
+
+
+
 .formularz label{
-    margin: 10px;
+    margin: 5px;
     display: block;
+    margin: 10px 0px 5x;
 }
 
 .media-form{
     margin-top: 5px;
-    width: 100%;
+    width: 350px;
     height: 120px;
     resize: none;
 }
