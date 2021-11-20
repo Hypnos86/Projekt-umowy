@@ -1,12 +1,14 @@
-{%extends 'start.html'%}
 {%load static%}
 {%load bootstrap%}
-{%block tytul%} WIiR - Logowanie do ewidencji umów użyczenia {%endblock%}
-
-
-{%block css%}{% static 'login.css' %}{%endblock%}
-
-{%block strona%}
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{%static 'logo.ico'%}" type="x-icon">
+    <link href="{%static 'main/css/login.css'%}" rel="stylesheet">
+    <title>WIiR - Logowanie do ewidencji umów użyczenia</title>
+</head>
+<body>
     <div class="naglowki_login">
         <h2> Wydział Inwestycji i Remontów KWP w Poznaniu</h2>
         <h2>Baza Rejestrów Infomatycznych</h2>
@@ -18,9 +20,14 @@
             <form method="post">
                 {%csrf_token%}
                 {{form|bootstrap}}
-                
+
                 <button type="submit"  class="button-login">Zaloguj </button>
             </form>
         </div>
+</body>
+</html>
 
-{%endblock%}
+
+
+
+

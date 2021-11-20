@@ -19,8 +19,8 @@
             <label>Typ umowy:</label> {{umowa_form.typ_umowy}}
             <label>Stan umowy:</label> {{umowa_form.stan_umowy}}
             <label>Powierzchnia użyczona [m<sup>2</sup>]:</label> <input type="number" step="any" name="pow_uzyczona"
-                                                                 placeholder="wpisz powierzchnie"
-                                                                 value={{umowa_form.pow_uzyczona.value}}></label>
+                                                                         placeholder="wpisz powierzchnie"
+                                                                         value={{umowa_form.pow_uzyczona.value}}></label>
         </div>
         <div class="formularz">
             <label>Nazwa użyczającego:</label> {{umowa_form.nazwa_uzyczajacego}}
@@ -40,19 +40,23 @@
         <legend><b>Informacje o mediach:</b></legend>
         <div class="formularz_media">
             <label>{{umowa_form.rodzaj_kosztow_prad}}: {{umowa_form.rodzaj_kosztow_prad.label}}<br>
-                <textarea class="media-form" placeholder="Wpisz informacje o mediach" name="informacje_prad"   rows="10" cols="35" >{{umowa_form.informacje_prad.value}}</textarea></label>
+                <textarea class="media-form" placeholder="Wpisz informacje o mediach" name="informacje_prad" rows="10"
+                          cols="35">{{umowa_form.informacje_prad.value}}</textarea></label>
         </div>
         <div class="formularz_media">
             <label>{{umowa_form.rodzaj_kosztow_gaz}}: {{umowa_form.rodzaj_kosztow_gaz.label}}<br>
-                <textarea class="media-form" placeholder="Wpisz informacje o mediach" name="informacje_gaz" rows="10" cols="35" >{{umowa_form.informacje_gaz.value}}</textarea></label>
+                <textarea class="media-form" placeholder="Wpisz informacje o mediach" name="informacje_gaz" rows="10"
+                          cols="35">{{umowa_form.informacje_gaz.value}}</textarea></label>
         </div>
         <div class="formularz_media">
             <label>{{umowa_form.rodzaj_kosztow_woda}}: {{umowa_form.rodzaj_kosztow_woda.label}}<br>
-                <textarea class="media-form" placeholder="Wpisz informacje o mediach" name="informacje_woda" rows="10" cols="35" >{{umowa_form.informacje_woda.value}}</textarea></label>
+                <textarea class="media-form" placeholder="Wpisz informacje o mediach" name="informacje_woda" rows="10"
+                          cols="35">{{umowa_form.informacje_woda.value}}</textarea></label>
         </div>
         <div class="formularz_media">
             <label>{{umowa_form.rodzaj_kosztow_co}}: {{umowa_form.rodzaj_kosztow_co.label}}<br>
-                <textarea class="media-form" placeholder="Wpisz informacje o mediach" name="informacje_co" rows="10" cols="35" >{{umowa_form.informacje_co.value}}</textarea></label>
+                <textarea class="media-form" placeholder="Wpisz informacje o mediach" name="informacje_co" rows="10"
+                          cols="35">{{umowa_form.informacje_co.value}}</textarea></label>
         </div>
     </fieldset>
 
@@ -67,11 +71,9 @@
     </fieldset>
     <div>
         <label>{{umowa_form.uwagi.label}}: <br>
-            <textarea class="uwagi" placeholder="Wpisz niezbędne informacje" name="uwagi">{{umowa_form.uwagi.value}}</textarea></label>
+            <textarea class="uwagi" placeholder="Wpisz niezbędne informacje"
+                      name="uwagi">{{umowa_form.uwagi.value}}</textarea></label>
     </div>
-
-    <!--        {{umowa_form|bootstrap}}-->
-
     {% if nowy %}
     <div>
         <button type="submit" class="button-general">Dodaj umowę</button>

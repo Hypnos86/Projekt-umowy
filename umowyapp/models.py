@@ -6,40 +6,28 @@ class Powiaty_Wlkp(models.Model):
     powiat = models.CharField(max_length=12, null=False)
 
     def __str__(self):
-        return self.powiat_jedn()
-
-    def powiat_jedn(self):
-        return "{}".format(self.powiat)
+        return f'{self.powiat}'
 
 
 class Rodzaje_jednostek(models.Model):
-    rodzaj = models.CharField(max_length=4, null=False)
+    rodzaj = models.CharField(max_length=5, null=False)
 
     def __str__(self):
-        return self.rodzaj_jedn()
-
-    def rodzaj_jedn(self):
-        return "{}".format(self.rodzaj)
+        return f'{self.rodzaj}'
 
 
 class Stan_umow(models.Model):
-    stan = models.CharField(max_length=14, null=False)
+    stan = models.CharField(max_length=30, null=False)
 
     def __str__(self):
-        return self.stan_umowy()
-
-    def stan_umowy(self):
-        return "{}".format(self.stan)
+        return f'{self.stan}'
 
 
 class Rodzaj_umowy(models.Model):
-    rodz_um = models.CharField(max_length=6, default="Czynsz")
+    rodz_um = models.CharField(max_length=10)
 
     def __str__(self):
-        return self.rodzaj_um()
-
-    def rodzaj_um(self):
-        return "{}".format(self.rodz_um)
+        return f'{self.rodz_um}'
 
 
 class Podstawa_prawna(models.Model):
@@ -54,13 +42,13 @@ class Podstawa_prawna(models.Model):
 
 class Umowa(models.Model):
     data_umowy = models.DateField(null=False)
-    nr_umowy = models.CharField(max_length=20, blank=True, default="BRAK")
+    nr_umowy = models.CharField(max_length=20, blank=True, default="(BRAK NUMERU)")
     podstawa_prawna = models.ForeignKey(Podstawa_prawna, on_delete=models.CASCADE, blank=True)
     nazwa_uzyczajacego = models.CharField(max_length=30, null=True)
     adres_uzyczajacego = models.CharField(max_length=30, null=True)
     kod_pocztowy_uzyczajacego = models.CharField(max_length=6, null=True)
     miasto_uzyczajacego = models.CharField(max_length=20, null=True)
-    okres_obowiazywania = models.DateField(blank=True, default="")
+    okres_obowiazywania = models.DateField(null=True, blank=True)
     typ_umowy = models.ForeignKey(Rodzaj_umowy, on_delete=models.CASCADE)
     pow_uzyczona = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
     rodzaj_kosztow_prad = models.BooleanField()
@@ -79,24 +67,21 @@ class Umowa(models.Model):
     skan_umowy = models.FileField(upload_to='umowy_pdf', null=True, blank=True)
     stan_umowy = models.ForeignKey(Stan_umow, on_delete=models.CASCADE, blank=False, default=1)
     uwagi = models.TextField(blank=True, default="")
-    deleted = models.BooleanField(null=False, default=0)
-    created = models.DateTimeField(auto_now_add=True)
-    modified = models.DateTimeField(auto_now=True)
+    archiwum = models.BooleanField(null=False, default=0)
+    utworzenie = models.DateTimeField(auto_now_add=True)
+    zmiana = models.DateTimeField(auto_now=True)
     autor = models.ForeignKey("auth.User", on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.umowa_z_data()
-
-    def umowa_z_data(self):
-        return "Umowa z dnia {} z {} ({})".format(self.data_umowy, self.nazwa_uzyczajacego, self.miasto_uzyczajacego)
+        return f'Umowa z dnia {self.data_umowy}, {self.nazwa_uzyczajacego}, {self.miasto_uzyczajacego}'
 
 
-class Aneksy(models.Model):
-    aneks = models.FileField(upload_to='aneksy_pdf', null=True, blank=True)
+class Aneks(models.Model):
     umowa = models.ForeignKey(Umowa, on_delete=models.CASCADE)
+    skan_aneksu = models.FileField(upload_to='aneksy_pdf', null=True, blank=True)
+    data_aneksu = models.DateField(null=True)
+    utworzenie = models.DateTimeField(auto_now_add=True)
+    autor = models.ForeignKey("auth.User", on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.aneksy()
-
-    def aneksy(self):
-        return "{}".format(self.aneks)
+        return f'{self.data_aneksu} {self.skan_aneksu}'

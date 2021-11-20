@@ -71,11 +71,15 @@
                 </ul>
             </fieldset>
         </form>
-        {%if aneks%}
-        <div>
-            {%for a in aneks%}
-            <a href="#" about="blank"><button>Podgląd aneksu</button></a>
-            {%endfor%}
+        {%if aneksy%}
+        <div >
+            <ul  >
+            {%for aneks in aneksy%}
+            <li class="lista aneks">
+                <span> Aneks z dnia {{aneks.data_aneksu}} r. </span><a href="/doc/{{aneks.skan_aneksu}}" target="_blank"><button class="button-podglad">Podgląd</button></a>
+            </li>
+                {%endfor%}
+            </ul>
         </div>
         {%endif%}
         <div class="cofni_podgląd">

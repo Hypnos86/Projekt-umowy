@@ -12,9 +12,6 @@ body{
 .user_name{
     float: left;
 }
-.button-wyloguj{
-    padding: 0 0 0 0;
-}
 
 .button-logout{
     float: right;
@@ -23,14 +20,11 @@ body{
     color: hsl(109,49%,85%);
     width: auto;
     margin-top: 12px;
-    margin-left: auto;
-    margin-right: auto;
     padding:10px;
     border-radius: 10px;
     border-style: none;
-    top:50;
     -webkit-transition: all 1s ease;
-    /*transition: all 1s ease;*/
+    transition: all 1s ease;
 }
 
 .button-logout:hover{
@@ -42,9 +36,10 @@ body{
 
 .hr{
     clear: both;
-    border: 2px solid hsl(212,88%,27%);
-    width: 80%;
-    margin:0.5% auto;
+    border: 1px solid hsl(212,88%,27%);
+    background: hsl(212,88%,27%);
+    width: 90%;
+    margin-bottom: 1%;
 }
 
 
@@ -53,12 +48,16 @@ body{
     background-color: hsl(194,60%,57%);
     padding: 1% 20px;
     border-radius: 10px;
-    margin: 0 0 20px;
-    }
+    margin-bottom: 20px;
+}
+
+
 .title{
     text-align:center;
     margin: 2px;
+
 }
+
 
 .info-umowy{
     margin: 5px;
@@ -156,6 +155,8 @@ select:focus{
     padding: auto auto;
     width: 70%;
 }
+
+
 .lista:hover{
     background-color: hsl(174,44%,64%);
 }
@@ -223,6 +224,35 @@ display:flex;
 .podglad_umow label{
     margin: 10px 20px;
 }
+
+.aneks{
+    padding:10px;
+    width: 35%;
+}
+
+.aneks span{
+    padding:6px;
+   }
+
+.button-podglad{
+    display:inline-block;
+    background-color: hsl(212,88%,27%);
+    color: hsl(109,49%,85%);
+    width: auto;
+    margin: auto auto auto 25px;
+    padding: 7px;
+    border-radius: 10px;
+    border-style: none;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.button-podglad:hover{
+    background-color: hsl(205,91%,35%);
+    color: hsl(107,50%,91%);
+    transform: scale(1.1)
+}
+
 
 .button back{
     margin: 1px 8px auto auto;
