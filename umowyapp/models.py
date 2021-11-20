@@ -82,6 +82,7 @@ class Umowa(models.Model):
     deleted = models.BooleanField(null=False, default=0)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
+    autor = models.ForeignKey("auth.User", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.umowa_z_data()

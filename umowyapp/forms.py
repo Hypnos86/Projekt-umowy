@@ -37,6 +37,7 @@ class UmowyForm(ModelForm):
                   'kod_pocztowy_jedn',
                   'skan_umowy',
                   'uwagi',
+
                   ]
 
         labels = {'data_umowy': 'Data umowy',
