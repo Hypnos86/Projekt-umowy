@@ -17,12 +17,18 @@
             <button class="button-general button-menu active">Ewidencja umów</button></a>
         <a href="{% url 'archiwalne_umowy'%}">
             <button class="button-general button-menu">Archiwum umów</button></a>
+
+        <!--<option value="{{t.id}}"{% if t.id == topic_id %} selected{% endif %}>{{t.title}}{{t.id}}</option>-->
+{{powiaty}}
         <form method="get" class="search">
-            <input type="text"  placeholder="Wyszukaj umowę">
-            <button class="button-general button-menu button-search" type="submit">Szukaj</button>
+
+            <select>
+                <option value="{{powiaty.id}}">Wybierz powiat</option>
+            </select>
+            <a href="#"><button class="button-general button-menu button-search" type="submit">Szukaj</button></a>
         </form>
     </nav>
-
+<!--NIEUMIEM!-->
 </div>
 
 

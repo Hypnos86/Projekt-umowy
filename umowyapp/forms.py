@@ -1,7 +1,6 @@
 from django.forms import ModelForm
 from django.forms import DateInput
-from .models import Umowa
-from .models import Aneks
+from .models import Umowa, Aneks, Powiaty_Wlkp
 
 
 class DateField(DateInput):
@@ -75,5 +74,12 @@ class UmowyForm(ModelForm):
 class AneksForm(ModelForm):
     class Meta:
         model = Aneks
-        fields = {'skan_aneksu'}
+        fields = ['skan_aneksu']
         labels = {'aneks': 'Aneks'}
+
+
+class PowiatForm(ModelForm):
+    class Meta:
+        model = Powiaty_Wlkp
+        fields = ['powiat']
+        labels = {'powiat': 'powiat'}

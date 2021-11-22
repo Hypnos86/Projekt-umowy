@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Umowa, Stan_umow, Aneks
-from .forms import UmowyForm, AneksForm
+from .models import Umowa, Stan_umow, Aneks, Powiaty_Wlkp
+from .forms import UmowyForm, AneksForm, PowiatForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -9,8 +9,9 @@ from django.contrib.auth.decorators import login_required
 def wszystkie_umowy(request):
     wszystkie = Umowa.objects.filter(archiwum=0)
     archiwalne = Umowa.objects.filter(archiwum=1)
+    powiaty = PowiatForm(request.POST or None, request.FILES or None)
 
-    return render(request, 'ewidencja.html', {'wszystkie': wszystkie, 'archiwalne': archiwalne})
+    return render(request, 'ewidencja.html', {'wszystkie': wszystkie, 'archiwalne': archiwalne, 'powiaty': powiaty})
 
 
 @login_required
@@ -65,3 +66,11 @@ def usun_umowe(request, id):
         umowa.save()
         return redirect(wszystkie_umowy)
     return render(request, 'usun.html', {'umowa': umowa})
+
+# @login_required
+# def FiltrPowiat(request, id_powiat):
+#     query =
+#     umowy = Umowa.objects.filter(ipowiat_jedn=query)
+#
+#     context = {}
+#     return render(request, 'ewidencja.html', context)

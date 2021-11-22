@@ -11,15 +11,25 @@ body{
 
 .user_name{
     float: left;
+    font-size: 14pt;
+    margin-bottom:25px;
+    margin-top:25px;
+}
+.user_name span{
+    text-align:center;
+    height:30px;
+
 }
 
 .button-logout{
-    float: right;
+    /*float: right;*/
     display:inline-block;
     background-color: hsl(212,88%,27%);
     color: hsl(109,49%,85%);
     width: auto;
-    margin-top: 12px;
+    margin-bottom:25px;
+    margin-top:25px;
+    height:30px;
     padding:10px;
     border-radius: 10px;
     border-style: none;
@@ -57,7 +67,6 @@ body{
     margin: 2px;
 
 }
-
 
 .info-umowy{
     margin: 5px;
@@ -227,7 +236,7 @@ display:flex;
 
 .aneks{
     padding:10px;
-    width: 35%;
+    width: 50%;
 }
 
 .aneks span{
