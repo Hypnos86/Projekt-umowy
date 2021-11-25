@@ -9,9 +9,9 @@ from django.contrib.auth.decorators import login_required
 def wszystkie_umowy(request):
     wszystkie = Umowa.objects.filter(archiwum=0)
     archiwalne = Umowa.objects.filter(archiwum=1)
-    powiaty = PowiatForm(request.POST or None, request.FILES or None)
+    # powiaty = PowiatForm(request.POST or None, request.FILES or None)
 
-    return render(request, 'ewidencja.html', {'wszystkie': wszystkie, 'archiwalne': archiwalne, 'powiaty': powiaty})
+    return render(request, 'ewidencja.html', {'wszystkie': wszystkie, 'archiwalne': archiwalne})
 
 
 @login_required
@@ -46,9 +46,6 @@ def edytuj_umowe(request, id):
     umowa_edit = get_object_or_404(Umowa, pk=id)
     umowa_form = UmowyForm(request.POST or None, request.FILES or None, instance=umowa_edit)
 
-    # aneks_edit = get_object_or_404(Aneksy, pk=id)
-    # aneks_form = AneksForm(request.POST or None, request.FILES or None, instance=aneks_edit)
-
     if umowa_form.is_valid():
         umowa_form.save()
 
@@ -67,10 +64,9 @@ def usun_umowe(request, id):
         return redirect(wszystkie_umowy)
     return render(request, 'usun.html', {'umowa': umowa})
 
-# @login_required
-# def FiltrPowiat(request, id_powiat):
-#     query =
-#     umowy = Umowa.objects.filter(ipowiat_jedn=query)
-#
-#     context = {}
-#     return render(request, 'ewidencja.html', context)
+
+@login_required
+def filtr(request, quer):
+    query = Umowa.objects.filter(nazwa_uzyczajacego__contains=quer)
+    context = {'wszystkie': query}
+    return render(request, 'ewidencja.html', context)

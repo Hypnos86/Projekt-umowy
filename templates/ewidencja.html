@@ -19,13 +19,9 @@
             <button class="button-general button-menu">Archiwum umów</button></a>
 
         <!--<option value="{{t.id}}"{% if t.id == topic_id %} selected{% endif %}>{{t.title}}{{t.id}}</option>-->
-{{powiaty}}
         <form method="get" class="search">
-
-            <select>
-                <option value="{{powiaty.id}}">Wybierz powiat</option>
-            </select>
-            <a href="#"><button class="button-general button-menu button-search" type="submit">Szukaj</button></a>
+            <input type="text"  placeholder="Wyszukaj umowę">
+            <a href="{%url 'filtr'%}"><button class="button-general button-menu button-search" type="button">Szukaj</button></a>
         </form>
     </nav>
 <!--NIEUMIEM!-->
