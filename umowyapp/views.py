@@ -9,12 +9,13 @@ from django.contrib.auth.decorators import login_required
 def wszystkie_umowy(request):
     wszystkie = Umowa.objects.filter(archiwum=0)
     archiwalne = Umowa.objects.filter(archiwum=1)
+    ilosc = len(wszystkie)
     q = request.GET.get("q")
     if q:
         wszystkie = wszystkie.filter(miasto_uzyczajacego__icontains=q)
-        return render(request, 'ewidencja.html', {'wszystkie': wszystkie, 'archiwalne': archiwalne})
+        return render(request, 'ewidencja.html', {'wszystkie': wszystkie, 'archiwalne': archiwalne, 'ilosc': ilosc})
     else:
-        return render(request, 'ewidencja.html', {'wszystkie': wszystkie, 'archiwalne': archiwalne})
+        return render(request, 'ewidencja.html', {'wszystkie': wszystkie, 'archiwalne': archiwalne, 'ilosc': ilosc})
 
 
 @login_required
@@ -28,21 +29,18 @@ def archiwalne_umowy(request):
 @login_required
 def nowe_umowy(request):
     umowa_form = UmowyForm(request.POST or None, request.FILES or None)
-    aneks_form = AneksForm(request.POST or None, request.FILES or None)
 
-    if umowa_form.is_valid():
-        instance = umowa_form.save(commit=False)
-        instance.autor = request.user
-    # if aneks_form.is_valid():
-        ane = aneks_form
-        ane.autor = request.user
-        ane.umowa = request.umowa
+    if request.method == 'POST':
 
-        instance.save()
-        ane.save()
-        return redirect(wszystkie_umowy)
+        if umowa_form.is_valid():
+            instance = umowa_form.save(commit=False)
+            instance.autor = request.user
+            instance.save()
+            # if aneks_form.is_valid():
 
-    return render(request, 'umowa_form.html', {'umowa_form': umowa_form, 'aneks_form': aneks_form, 'nowy': True})
+            return redirect(wszystkie_umowy)
+
+    return render(request, 'umowa_form.html', {'umowa_form': umowa_form, 'nowy': True})
 
 
 @login_required
@@ -56,13 +54,18 @@ def podglad_umow(request, id):
 def edytuj_umowe(request, id):
     umowa_edit = get_object_or_404(Umowa, pk=id)
     umowa_form = UmowyForm(request.POST or None, request.FILES or None, instance=umowa_edit)
+    aneks_form = AneksForm(request.POST or None, request.FILES or None)
 
     if umowa_form.is_valid():
         umowa_form.save()
+        ane = aneks_form
+        ane.autor = request.user
+        ane.umowa = umowa_edit
+        ane.save()
 
         return redirect(wszystkie_umowy)
 
-    return render(request, 'umowa_form.html', {'umowa_form': umowa_form, 'nowy': False})
+    return render(request, 'umowa_form.html', {'umowa_form': umowa_form, 'aneks_form': aneks_form, 'nowy': False})
 
 
 @login_required

@@ -27,13 +27,15 @@
             <label>Adres:</label> {{umowa_form.adres_uzyczajacego}}
             <label>Kod pocztowy:</label> {{umowa_form.kod_pocztowy_uzyczajacego}}
             <label>Miasto:</label> {{umowa_form.miasto_uzyczajacego}}
-            <label>Okres obowiąztwania:</label> {{umowa_form.okres_obowiazywania}}
+            <label>Okres obowiązywania:</label> {{umowa_form.okres_obowiazywania}}
 
         </div>
         <div class="formularz">
             <label>Skan umowy:</label> {{umowa_form.skan_umowy}}
+            {%if nowy == False%}
             <label>Data aneksu: </label>{{aneks_form.data_aneksu}}
             <label>Skan aneksu:</label> {{aneks_form.skan_aneksu}}
+            {%endif%}
         </div>
 
     </fieldset>
