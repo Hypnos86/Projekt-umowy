@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Umowa, Stan_umow, Aneks, Powiaty_Wlkp
+from umowyapp.models import Umowa, Stan_umow, Aneks, Powiaty_Wlkp
 from .forms import UmowyForm, AneksForm, PowiatForm
 from django.contrib.auth.decorators import login_required
 
@@ -9,14 +9,16 @@ from django.contrib.auth.decorators import login_required
 def wszystkie_umowy(request):
     wszystkie = Umowa.objects.filter(archiwum=0)
     archiwalne = Umowa.objects.filter(archiwum=1)
-    # powiaty = PowiatForm(request.POST or None, request.FILES or None)
-
-    return render(request, 'ewidencja.html', {'wszystkie': wszystkie, 'archiwalne': archiwalne})
+    q = request.GET.get("q")
+    if q:
+        wszystkie = wszystkie.filter(miasto_uzyczajacego__icontains=q)
+        return render(request, 'ewidencja.html', {'wszystkie': wszystkie, 'archiwalne': archiwalne})
+    else:
+        return render(request, 'ewidencja.html', {'wszystkie': wszystkie, 'archiwalne': archiwalne})
 
 
 @login_required
 def archiwalne_umowy(request):
-    # return HttpResponse('<h1>to jest test aplikacji</h1>')
     archiwalne = Umowa.objects.filter(archiwum=1)
     wszystkie = Umowa.objects.filter(archiwum=0)
 
@@ -26,18 +28,20 @@ def archiwalne_umowy(request):
 @login_required
 def nowe_umowy(request):
     umowa_form = UmowyForm(request.POST or None, request.FILES or None)
+    aneks_form = AneksForm(request.POST or None, request.FILES or None)
 
     if umowa_form.is_valid():
-        umowa_form.save()
+        umowa_form.save(commit=False)
+        aneks_form.is_valid()
+        umowa_form.save(commit=True)
         return redirect(wszystkie_umowy)
-    return render(request, 'umowa_form.html', {'umowa_form': umowa_form, 'nowy': True})
+    return render(request, 'umowa_form.html', {'umowa_form': umowa_form, 'aneks_form': aneks_form, 'nowy': True})
 
 
 @login_required
 def podglad_umow(request, id):
     podglad = Umowa.objects.get(pk=id)
     aneksy = podglad.aneks_set.all()
-    # form = UmowyForm(request.FILES or None, instance=podglad)
     return render(request, 'podglad.html', {'podglad': podglad, 'aneksy': aneksy})
 
 
@@ -63,10 +67,3 @@ def usun_umowe(request, id):
         umowa.save()
         return redirect(wszystkie_umowy)
     return render(request, 'usun.html', {'umowa': umowa})
-
-
-@login_required
-def filtr(request, quer):
-    query = Umowa.objects.filter(nazwa_uzyczajacego__contains=quer)
-    context = {'wszystkie': query}
-    return render(request, 'ewidencja.html', context)

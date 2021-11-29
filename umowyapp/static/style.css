@@ -3,34 +3,58 @@ body{
     color: #2F4F4F;
     /*rgb(33, 36, 53);*/
     background-color: hsl(85,67%,96%);
-    padding: 1rem 1%;
+    padding: 0;
     font-family: arial;
-    margin: auto 45px;
+    margin: 10px 45px;
+}
+
+a{
+    text-decoration: none;
+}
+
+footer {
+    position: fixed;
+    width: 90%;
+    margin: auto;
+    height: 20px;
+    background-color: rgba(39, 78, 163, 0.836);
+    color: aliceblue;
+    right: 5%;
+    bottom: 1px;
+    left: 5%;
+
+    border-radius: 80px 80px 15px 15px;
+}
+
+.stopka {
+    text-align: center;
+    font-size: 15px;
+    margin: 2px 0px;
+}
+
+.element_login{
+    padding: 0;
 }
 /* ewidencja - panel uzytkownika*/
 
 .user_name{
     float: left;
-    font-size: 14pt;
-    margin-bottom:25px;
-    margin-top:25px;
+    font-size: 12pt;
+    margin-top: auto;
+    margin-bottom:10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
-.user_name span{
-    text-align:center;
-    height:30px;
-
-}
-
 .button-logout{
-    /*float: right;*/
+    float: right;
     display:inline-block;
     background-color: hsl(212,88%,27%);
     color: hsl(109,49%,85%);
     width: auto;
-    margin-bottom:25px;
-    margin-top:25px;
+    margin-top: auto;
+    margin-bottom:10px;
     height:30px;
-    padding:10px;
+    padding: 0px 20px;
     border-radius: 10px;
     border-style: none;
     -webkit-transition: all 1s ease;
@@ -77,12 +101,12 @@ body{
     background-color: hsl(212,88%,27%);
     color: hsl(109,49%,85%);
     width: auto;
-    margin: 20px 8px auto auto;
-    padding:10px;
+    margin: 10px 5px;
+    padding:8px 10px;
     border-radius: 10px;
     border-style: none;
-    -webkit-transition: all 1s ease;
-    transition: all 1s ease;
+    webkit-transition: all 1s ease;
+    transition: all 0.3s ease;
 }
 
 .button-general:hover{
@@ -92,8 +116,9 @@ body{
 }
 
 .button-menu{
-    margin: 5px 1% 2px ;
-}
+    margin: 0 10px;
+    margin-top: 15px;
+    }
 
 .active{
     background-color: hsl(205,91%,35%);
@@ -101,7 +126,7 @@ body{
 }
 
 .button-remove{
-    margin-right:15px;
+    margin-right:20px;
 }
 
 .button-remove:hover{
@@ -112,20 +137,22 @@ body{
 
 .search{
     display:inline-block;
-    width: 400px;
-    text-align:right;
-    margin: auto auto auto 35%;
+    float:right;
+    width: auto;
+    padding: 0 0;
+    margin-top: 15 ;
 }
 
 .search input{
-    width:250px;
-    border: solid 3px white;
+    width:150px;
+    border: solid 2px white;
     height:25px;
-    border-radius: 10px;
+    border-radius: 10px 0px 0px 10px;
+    margin-top: 15px;
 }
 
 .search input:focus{
-    border: solid 3px hsl(205,91%,35%);
+    border: solid 2px hsl(205,91%,35%);
     outline: none;
 }
 input, textarea, select{
@@ -151,8 +178,12 @@ select:focus{
 
 
 .button-search{
-    width:120px;
-    margin-left:10px;
+    display:inline-block;
+    float: right;
+    width:80px;
+    border-radius: 0px 10px 10px 0px;
+    margin-left: 0px;
+
 }
 
 .lista{
@@ -172,11 +203,12 @@ select:focus{
 .lista_umow{
     list-style-type:none;
     flex:1;
-    margin: auto auto 10px;
+    margin: auto auto auto;
 }
 
 .znacznik{
-    margin-bottom: auto;
+    margin-top: 5px;
+    margin-bottom: 2px;
 }
 
 .znacznik::before{
@@ -186,8 +218,8 @@ select:focus{
 
 .info{
     margin-left: 37px;
-    margin-top: auto;
-    margin-bottom: 8px;
+    margin-top: 2px;
+    margin-bottom: 5px;
 }
 
 .button{
@@ -235,21 +267,21 @@ display:flex;
 }
 
 .aneks{
-    padding:10px;
+    padding: 5px;
     width: 50%;
 }
-
-.aneks span{
-    padding:6px;
-   }
+.aneks-div-span{
+    padding: 8px;
+    width:auto;
+}
 
 .button-podglad{
+    float: right;
     display:inline-block;
     background-color: hsl(212,88%,27%);
     color: hsl(109,49%,85%);
     width: auto;
-    margin: auto auto auto 25px;
-    padding: 7px;
+    padding:8px 8px;
     border-radius: 10px;
     border-style: none;
     -webkit-transition: all 1s ease;
@@ -260,6 +292,9 @@ display:flex;
     background-color: hsl(205,91%,35%);
     color: hsl(107,50%,91%);
     transform: scale(1.1)
+}
+.aneks-div-button{
+    margin-left: 10%;
 }
 
 

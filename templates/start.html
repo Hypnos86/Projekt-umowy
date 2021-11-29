@@ -7,20 +7,25 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="{%static 'logo.ico'%}" type="x-icon">
-    <link rel="stylesheet" href= "{%block css%}{% static 'style.css' %}{%endblock%}">
+    <link rel="stylesheet" href="{%block css%}{% static 'style.css' %}{%endblock%}">
     <title>{%block tytul%} {%endblock%}</title>
 
 </head>
 <body>
 {% if user.is_authenticated%}
 <nav class="element_login">
-    <h3 class="user_name"><span>Zalogowany użytkownik: {{user.first_name}} (ID: {{user.username}})</span><h3>
-    <a href="{%url 'logout'%}"><button class="button-logout">Wyloguj</button></a>
+    <h4 class="user_name">Zalogowany użytkownik: {{user.first_name}} (ID: {{user.username}})</h4>
+            <a href="{%url 'logout'%}"><button class="button-logout">Wyloguj</button></a>
 </nav>
+
 {%else%}
 <a href="{%url 'login'%}">Login</a>
 {%endif%}
 <hr class="hr">
-            {%block strona%} {%endblock%}
+{%block strona%} {%endblock%}
+
+<footer>
+    <p class="stopka"><b>----- Wydział Inwestycji i Remontów KWP w Poznaniu -----</b></p>
+</footer>
 </body>
 </html>

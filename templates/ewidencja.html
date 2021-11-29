@@ -11,20 +11,16 @@
     <h4 class="info-umowy">Ilość umów w archiwum: {{archiwalne|length}}</h4>
 
     <nav>
-        <a href="{% url 'nowe_umowy'%}">
-            <button class="button-general button-menu">Dodaj nową umowę</button></a>
-        <a href="{% url 'wszystkie_umowy'%}">
-            <button class="button-general button-menu active">Ewidencja umów</button></a>
-        <a href="{% url 'archiwalne_umowy'%}">
-            <button class="button-general button-menu">Archiwum umów</button></a>
-
-        <!--<option value="{{t.id}}"{% if t.id == topic_id %} selected{% endif %}>{{t.title}}{{t.id}}</option>-->
-        <form method="get" class="search">
-            <input type="text"  placeholder="Wyszukaj umowę">
-            <a href="{%url 'filtr'%}"><button class="button-general button-menu button-search" type="button">Szukaj</button></a>
-        </form>
+        <a href="{% url 'nowe_umowy'%}"><button class="button-general button-menu">Dodaj nową umowę</button></a>
+        <a href="{% url 'wszystkie_umowy'%}"><button class="button-general button-menu active">Ewidencja umów</button></a>
+        <a href="{% url 'archiwalne_umowy'%}"><button class="button-general button-menu">Archiwum umów</button></a>
+        <div class="search">
+            <form method="get" >
+                <input id="q" name="q" type="text" placeholder="Wyszukaj miasto">
+                <a href="{%url 'wszystkie_umowy'%}"><button class="button-general button-menu button-search"  type="submit">Szukaj</button></a>
+            </form>
+        </div>
     </nav>
-<!--NIEUMIEM!-->
 </div>
 
 
@@ -38,12 +34,9 @@
         </li>
     </ul>
     <div>
-        <a href="{% url 'podglad_umowy' umowa.id %}">
-            <button class="button-general">Podgląd</button></a>
-        <a href="{% url 'edytuj_umowe' umowa.id %}">
-            <button class="button-general">Edytuj</button></a>
-        <a href="{% url 'usun_umowe' umowa.id %}">
-            <button class="button-general button-remove">Zarchiwizuj</button></a>
+        <a href="{% url 'podglad_umowy' umowa.id %}"><button class="button-general">Podgląd</button></a>
+        <a href="{% url 'edytuj_umowe' umowa.id %}"><button class="button-general">Edytuj</button></a>
+        <a href="{% url 'usun_umowe' umowa.id %}"><button class="button-general button-remove">Zarchiwizuj</button></a>
 
     </div>
 </main>

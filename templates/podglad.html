@@ -1,6 +1,6 @@
 {%extends 'start.html'%}
 
-{%block tytul%} Umowa {{podglad.nr_umowy}} {%endblock%}
+{%block tytul%}Umowa z dnia {{podglad.data_umowy}}{%endblock%}
 
 {%block strona%}
 <section xmlns="http://www.w3.org/1999/html">
@@ -72,15 +72,12 @@
             </fieldset>
         </form>
         {%if aneksy%}
-        <div >
-            <ul  >
             {%for aneks in aneksy%}
-            <li class="lista aneks">
-                <span> Aneks z dnia {{aneks.data_aneksu}} r. </span><a href="/doc/{{aneks.skan_aneksu}}" target="_blank"><button class="button-podglad">Podgląd</button></a>
-            </li>
+                <div class="lista aneks">
+                    <div class="aneks-div-span"><span> Aneks z dnia {{aneks.data_aneksu}} r. </span></div>
+                    <div class="aneks-div-button"><a href="/doc/{{aneks.skan_aneksu}}" target="_blank"><button class="button-podglad">Podgląd</button></a></div>
+                </div>
                 {%endfor%}
-            </ul>
-        </div>
         {%endif%}
         <div class="cofni_podgląd">
             <a href="{% url 'wszystkie_umowy'%}"><button class="button-general button-back">Cofnij</button></a>
@@ -88,7 +85,7 @@
     </div>
         {%if podglad.skan_umowy %}
         <div class="pdf_viev">
-        <embed src="/doc/{{podglad.skan_umowy}}#toolbar=1" type="application/pdf"/>
+        <embed src="/doc/{{podglad.skan_umowy}}#toolbar=0" type="application/pdf"/>
         </div>
         {%endif%}
 

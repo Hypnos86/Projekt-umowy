@@ -18,7 +18,7 @@
             <label>Podstawa prawna:</label> {{umowa_form.podstawa_prawna}}
             <label>Typ umowy:</label> {{umowa_form.typ_umowy}}
             <label>Stan umowy:</label> {{umowa_form.stan_umowy}}
-            <label>Powierzchnia użyczona [m<sup>2</sup>]:</label> <input type="number" step="any" name="pow_uzyczona"
+            <label>Powierzchnia użyczona [m<sup>2</sup>]:</label> <label><input type="number" step="any" name="pow_uzyczona"
                                                                          placeholder="wpisz powierzchnie"
                                                                          value={{umowa_form.pow_uzyczona.value}}></label>
         </div>
@@ -32,6 +32,7 @@
         </div>
         <div class="formularz">
             <label>Skan umowy:</label> {{umowa_form.skan_umowy}}
+            <label>Skan aneksu:</label> {{aneks_form.skan_aneksu}}
         </div>
 
     </fieldset>

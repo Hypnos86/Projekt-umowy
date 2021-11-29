@@ -13,10 +13,10 @@ class UmowyResource(resources.ModelResource):
 # admin.site.register(Umowy)
 @admin.register(Umowa)
 class UmowyAdmin(ExportMixin, admin.ModelAdmin):
-    list_display = ["data_umowy", "nr_umowy", "powiaty_jedn", "rodzaj_jedn", "miasto_jedn", "stan_umowy", "utworzenie",
-                    "zmiana", "archiwum"]
+    list_display = ["data_umowy", "nr_umowy", "nazwa_uzyczajacego", "powiaty_jedn", "rodzaj_jedn", "miasto_jedn",
+                    "stan_umowy", "utworzenie", "zmiana", "archiwum"]
     list_filter = ["powiaty_jedn"]
-    search_fields = ["nr_umowy", "miasto_jedn"]
+    search_fields = ["nr_umowy", "nazwa_uzyczajacego", "miasto_jedn"]
     resource_class = UmowyResource
 
 
