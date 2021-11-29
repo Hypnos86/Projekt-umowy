@@ -31,10 +31,17 @@ def nowe_umowy(request):
     aneks_form = AneksForm(request.POST or None, request.FILES or None)
 
     if umowa_form.is_valid():
-        umowa_form.save(commit=False)
-        aneks_form.is_valid()
-        umowa_form.save(commit=True)
+        instance = umowa_form.save(commit=False)
+        instance.autor = request.user
+    # if aneks_form.is_valid():
+        ane = aneks_form
+        ane.autor = request.user
+        ane.umowa = request.umowa
+
+        instance.save()
+        ane.save()
         return redirect(wszystkie_umowy)
+
     return render(request, 'umowa_form.html', {'umowa_form': umowa_form, 'aneks_form': aneks_form, 'nowy': True})
 
 

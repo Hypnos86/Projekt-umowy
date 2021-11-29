@@ -7,7 +7,7 @@
 <div class="ewidencja-title">
     <h2 class="title">Wydział Inwestycji i Remontów KWP w Poznaniu</h2>
     <h3 class="title">Ewidencja umów najmu i użyczenia</h3>
-    <h4 class="info-umowy">Ilość umów aktualnych: {{wszystkie|length}}</h4>
+    <h4 class="info-umowy">Ilość umów aktualnych: {{wszystkie|length}}</h4><br>
     <h4 class="info-umowy">Ilość umów w archiwum: {{archiwalne|length}}</h4>
 
     <nav>
@@ -22,8 +22,7 @@
         </div>
     </nav>
 </div>
-
-
+<div class="ewidencja-glowna">
 {%for umowa in wszystkie%}
 <main class="lista">
     <ul class="lista_umow">
@@ -37,10 +36,8 @@
         <a href="{% url 'podglad_umowy' umowa.id %}"><button class="button-general">Podgląd</button></a>
         <a href="{% url 'edytuj_umowe' umowa.id %}"><button class="button-general">Edytuj</button></a>
         <a href="{% url 'usun_umowe' umowa.id %}"><button class="button-general button-remove">Zarchiwizuj</button></a>
-
     </div>
 </main>
-
 {%endfor%}
-
+</div>
 {%endblock%}

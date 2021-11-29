@@ -6,6 +6,7 @@ body{
     padding: 0;
     font-family: arial;
     margin: 10px 45px;
+    padding:5px 30px;
 }
 
 a{
@@ -22,6 +23,7 @@ footer {
     right: 5%;
     bottom: 1px;
     left: 5%;
+    right: 5%;
 
     border-radius: 80px 80px 15px 15px;
 }
@@ -72,7 +74,6 @@ footer {
     clear: both;
     border: 1px solid hsl(212,88%,27%);
     background: hsl(212,88%,27%);
-    width: 90%;
     margin-bottom: 1%;
 }
 
@@ -80,11 +81,14 @@ footer {
 /*strona główna - ewidencja*/
 .ewidencja-title{
     background-color: hsl(194,60%,57%);
-    padding: 1% 20px;
+    padding: 5px 20px;
     border-radius: 10px;
     margin-bottom: 20px;
 }
-
+.ewidencja-glowna{
+    margin-bottom: 30px;
+    width:100%;
+}
 
 .title{
     text-align:center;
@@ -93,6 +97,7 @@ footer {
 }
 
 .info-umowy{
+    display:inline-block;
     margin: 5px;
 }
 

@@ -35,7 +35,7 @@ class UmowyForm(ModelForm):
                   'miasto_jedn',
                   'kod_pocztowy_jedn',
                   'skan_umowy',
-                  'uwagi',
+                  'uwagi'
                   ]
 
         labels = {'data_umowy': 'Data umowy',
@@ -74,8 +74,12 @@ class UmowyForm(ModelForm):
 class AneksForm(ModelForm):
     class Meta:
         model = Aneks
-        fields = ['skan_aneksu']
-        labels = {'aneks': 'Aneks'}
+        fields = ['umowa', 'skan_aneksu', 'data_aneksu', 'autor']
+        labels = {'aneks': 'Aneks',
+                  'data_aneksu': 'Data aneksu',
+                  'autor': 'Autor'}
+
+        widgets = {'data_aneksu': DateField()}
 
 
 class PowiatForm(ModelForm):

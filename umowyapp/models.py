@@ -70,7 +70,7 @@ class Umowa(models.Model):
     archiwum = models.BooleanField(null=False, default=0)
     utworzenie = models.DateTimeField(auto_now_add=True)
     zmiana = models.DateTimeField(auto_now=True)
-    # autor = models.ForeignKey("auth.User", editable=False, on_delete=models.CASCADE)
+    autor = models.ForeignKey("auth.User", editable=False, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'Umowa z dnia {self.data_umowy}, {self.nazwa_uzyczajacego}, {self.miasto_uzyczajacego}'
