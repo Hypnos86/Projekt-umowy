@@ -5,11 +5,11 @@
 {%block strona%}
 <form method="post" enctype="multipart/form-data">
     {%csrf_token%}
-    <fieldset class="podglad_umow">
+    <fieldset class="formularz">
         <legend><b>Aneks:</b></legend>
-    <label>Wybierz umowę:</label>{{aneks_form.umowa_id}}
-    <label>Data aneksu: </label>{{aneks_form.data_aneksu}}
-    <label>Skan aneksu:</label> {{aneks_form.skan_aneksu}}
+        <label>Wybierz umowę:</label>{{aneks_form.umowa_id}}
+        <label>Data aneksu: </label>{{aneks_form.data_aneksu}}
+        <label>Skan aneksu:</label> {{aneks_form.skan_aneksu}}
     </fieldset>
     <div>
         <button type="submit" class="button-general">Dodaj aneks</button>
