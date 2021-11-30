@@ -16,11 +16,10 @@ a{
 footer {
     position: fixed;
     width: 90%;
-    margin: auto;
+    margin-top:20px;
     height: 20px;
     background-color: rgba(39, 78, 163, 0.836);
     color: aliceblue;
-    right: 5%;
     bottom: 1px;
     left: 5%;
     right: 5%;
@@ -31,7 +30,8 @@ footer {
 .stopka {
     text-align: center;
     font-size: 15px;
-    margin: 2px 0px;
+    margin: 0px 0px;
+    padding:0 0;
 }
 
 .element_login{
@@ -112,6 +112,7 @@ footer {
     border-style: none;
     webkit-transition: all 1s ease;
     transition: all 0.3s ease;
+    margin-right:15px;
 }
 
 .button-general:hover{
@@ -121,8 +122,7 @@ footer {
 }
 
 .button-menu{
-    margin: 0 10px;
-    margin-top: 15px;
+    margin: 10px 10px;
     }
 
 .active{
@@ -153,7 +153,7 @@ footer {
     border: solid 2px white;
     height:25px;
     border-radius: 10px 0px 0px 10px;
-    margin-top: 15px;
+    margin: 10px 0;
 }
 
 .search input:focus{
@@ -193,7 +193,7 @@ select:focus{
 
 .lista{
     display: flex;
-    border-radius: 20px;
+    border-radius: 10px;
     border-style: none;
     background-color: hsl(135,44%,76%);
     margin: 5px;
@@ -385,10 +385,19 @@ embed{
     width: 350px;
     height: 120px;
     resize: none;
+    padding:8px;
 }
 
 .uwagi{
  width: 100%;
  height: 90px;
  resize: none;
+ padding: 10px;
+}
+
+input[type="file"] {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
 }

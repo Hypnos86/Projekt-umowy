@@ -3,41 +3,59 @@
 {%block tytul%} WIiR KWP P-ń - Ewidencji umów najmu i użyczenia {%endblock%}
 
 {%block strona%}
-
 <div class="ewidencja-title">
     <h2 class="title">Wydział Inwestycji i Remontów KWP w Poznaniu</h2>
     <h3 class="title">Ewidencja umów najmu i użyczenia</h3>
     <h4 class="info-umowy">Ilość umów aktualnych: {{ilosc}}</h4><br>
-    <h4 class="info-umowy">Ilość umów w archiwum: {{archiwalne|length}}</h4>
+    <h4 class="info-umowy">Ilość umów w archiwum: {{iloscarchi}}</h4>
 
     <nav>
         <a href="{% url 'nowe_umowy'%}"><button class="button-general button-menu">Dodaj nową umowę</button></a>
-        <a href="{% url 'wszystkie_umowy'%}"><button class="button-general button-menu active">Ewidencja umów</button></a>
-        <a href="{% url 'archiwalne_umowy'%}"><button class="button-general button-menu">Archiwum umów</button></a>
+        <a href="{% url 'wszystkie_umowy'%}"><button class="button-general button-menu {%if ewidencja == True %}active {%endif%}">Ewidencja umów</button></a>
+        <a href="{%url 'add_aneks'%}"><button class="button-general button-menu">Dodaj aneks</button></a>
+        <a href="{% url 'archiwalne_umowy'%}"><button class="button-general button-menu {%if ewidencja == False %}active {%endif%}">Archiwum umów</button></a>
         <div class="search">
-            <form method="get" >
+            <form method="get">
                 <input id="q" name="q" type="text" placeholder="Wyszukaj miasto">
-                <a href="{%url 'wszystkie_umowy'%}"><button class="button-general button-menu button-search"  type="submit">Szukaj</button></a>
+                <a href="{%url 'wszystkie_umowy'%}"><button class="button-general button-menu button-search" type="submit">Szukaj</button></a>
             </form>
         </div>
     </nav>
 </div>
 <div class="ewidencja-glowna">
-{%for umowa in wszystkie%}
-<main class="lista">
-    <ul class="lista_umow">
-        <li class="lista-option">
-            <p class="znacznik"><b>{{umowa}} </b></p>
-            <p class="info">{{umowa.typ_umowy}} <b>|</b> {{umowa.rodzaj_jedn}} {{umowa.miasto_jedn}} <b>|</b>
-                {{umowa.powiaty_jedn}}</p>
-        </li>
-    </ul>
-    <div>
-        <a href="{% url 'podglad_umowy' umowa.id %}"><button class="button-general">Podgląd</button></a>
-        <a href="{% url 'edytuj_umowe' umowa.id %}"><button class="button-general">Edytuj</button></a>
-        <a href="{% url 'usun_umowe' umowa.id %}"><button class="button-general button-remove">Zarchiwizuj</button></a>
-    </div>
-</main>
-{%endfor%}
+    {%if ewidencja == True%}
+    {%for umowa in wszystkie%}
+    <main class="lista">
+        <ul class="lista_umow">
+            <li class="lista-option">
+                <p class="znacznik"><b>{{umowa}} </b></p>
+                <p class="info">{{umowa.typ_umowy}} <b>|</b> {{umowa.rodzaj_jedn}} {{umowa.miasto_jedn}} <b>|</b>
+                    {{umowa.powiaty_jedn}}</p>
+            </li>
+        </ul>
+        <div>
+            <a href="{% url 'podglad_umowy' umowa.id %}"><button class="button-general">Podgląd</button></a>
+            <a href="{% url 'edytuj_umowe' umowa.id %}"><button class="button-general">Edytuj</button></a>
+            <a href="{% url 'usun_umowe' umowa.id %}"><button class="button-general button-remove">Zarchiwizuj</button></a>
+        </div>
+    </main>
+    {%endfor%}
+    {%else%}
+    {%for umowa in archiwalne%}
+    <main class="lista archiwum">
+        <ul class="lista_umow">
+            <li class="lista-option">
+                <p class="znacznik"><b>{{umowa}} </b></p>
+                <p class="info">{{umowa.typ_umowy}} <b>|</b> {{umowa.rodzaj_jedn}} {{umowa.miasto_jedn}} <b>|</b>
+                    {{umowa.powiaty_jedn}}</p>
+            </li>
+        </ul>
+        <div>
+            <a href="{% url 'podglad_umowy' umowa.id %}"><button class="button-general">Podgląd</button></a>
+        </div>
+    </main>
+    {%endfor%}
+    {%endif%}
+
 </div>
 {%endblock%}

@@ -22,7 +22,9 @@ class UmowyAdmin(ExportMixin, admin.ModelAdmin):
 
 @admin.register(Aneks)
 class AneksAdmin(admin.ModelAdmin):
-    list_display = ["data_aneksu", "utworzenie", "autor"]
+    list_display = ["data_aneksu", "id", "umowa_id",  "utworzenie", "autor"]
+    search_fields = ["umowa_id.id", "data_aneksu"]
+    list_filter = ["umowa_id"]
 
 
 admin.site.register(Powiaty_Wlkp)

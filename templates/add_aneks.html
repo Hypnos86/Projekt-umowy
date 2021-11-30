@@ -1,0 +1,22 @@
+{%extends 'start.html'%}
+{%load bootstrap%}
+{%block tytul%} Dodawanie aneksu{%endblock%}
+
+{%block strona%}
+<form method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <fieldset class="podglad_umow">
+        <legend><b>Aneks:</b></legend>
+    <label>Wybierz umowę:</label>{{aneks_form.umowa_id}}
+    <label>Data aneksu: </label>{{aneks_form.data_aneksu}}
+    <label>Skan aneksu:</label> {{aneks_form.skan_aneksu}}
+    </fieldset>
+    <div>
+        <button type="submit" class="button-general">Dodaj aneks</button>
+    </div>
+</form>
+<a href="{% url 'wszystkie_umowy'%}">
+    <button class="button-general">Cofnij</button>
+</a>
+
+{%endblock%}

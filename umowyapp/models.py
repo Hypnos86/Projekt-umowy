@@ -73,12 +73,12 @@ class Umowa(models.Model):
     autor = models.ForeignKey("auth.User", editable=False, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'Umowa z dnia {self.data_umowy}, {self.nazwa_uzyczajacego}, {self.miasto_uzyczajacego}'
+        return f'Umowa z dnia {self.data_umowy}, {self.nazwa_uzyczajacego}, {self.miasto_uzyczajacego} (dot.: {self.miasto_jedn})'
 
 
 class Aneks(models.Model):
-    umowa = models.ForeignKey(Umowa, on_delete=models.CASCADE)
-    skan_aneksu = models.FileField(upload_to='aneksy_pdf', null=True, blank=True)
+    umowa_id = models.ForeignKey("umowyapp.Umowa", on_delete=models.CASCADE)
+    skan_aneksu = models.FileField(upload_to='aneksy_pdf/%Y', null=True, blank=True)
     data_aneksu = models.DateField(null=True)
     utworzenie = models.DateTimeField(auto_now_add=True)
     autor = models.ForeignKey("auth.User", on_delete=models.CASCADE)
